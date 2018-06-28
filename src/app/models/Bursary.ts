@@ -1,9 +1,10 @@
 export interface Bursary {
-    id: string;
+    id?: string;
     title?: string;
     applicableFields?: string[];
     applicationProcess?: string;
     bursaryUrl?: string;
+    companyId?: string;
     closingDate?: string;
     field?: string;
     requirements?: string[];
