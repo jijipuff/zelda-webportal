@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/Forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -19,6 +21,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { BursaryService } from './services/bursary.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -35,13 +38,16 @@ import { BursaryService } from './services/bursary.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    FlashMessagesModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'zeldatestapp'),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
   providers: [
-    BursaryService
+    BursaryService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

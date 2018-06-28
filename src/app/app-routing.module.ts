@@ -11,13 +11,15 @@ import { BursaryDetailsComponent } from './components/bursary-details/bursary-de
 import { EditBursaryComponent } from './components/edit-bursary/edit-bursary.component';
 import { AddBursaryComponent } from './components/add-bursary/add-bursary.component';
 
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'bursary/add', component: AddBursaryComponent },
-  { path: 'bursary/:id', component: BursaryDetailsComponent },
-  { path: 'bursary/edit/:id', component: EditBursaryComponent },
+  { path: 'bursary/add', component: AddBursaryComponent, canActivate: [AuthGuard] },
+  { path: 'bursary/:id', component: BursaryDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'bursary/edit/:id', component: EditBursaryComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -26,6 +28,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(routes)
+  ],
+  providers: [
+    AuthGuard
   ],
   declarations: []
 })
