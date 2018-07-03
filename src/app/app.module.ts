@@ -22,6 +22,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { BursaryService } from './services/bursary.service';
 import { AuthService } from './services/auth.service';
+import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
+import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { AuthService } from './services/auth.service';
     BursariesComponent,
     AddBursaryComponent,
     EditBursaryComponent,
-    BursaryDetailsComponent
+    BursaryDetailsComponent,
+    TopNavbarComponent,
+    SideNavbarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

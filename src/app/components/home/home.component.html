@@ -1,5 +1,26 @@
-<div class="row">
-  <div class="col-md-10 mx-auto">
-    <app-bursaries></app-bursaries>
+<div class="nav navbar navbar-expand-md navbar-light">
+  <button class="navbar-toggler ml-auto mb-2 bg-light" data-toggle="collapse" data-target="#myNavbar" >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="myNavbar">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Start Side-Navbar -->
+        <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+          <app-side-navbar></app-side-navbar>
+        </div>
+        <!-- End of Side-Navbar -->
+
+        <!-- Start: Top Navbar -->
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto fixed-top py-0 top-navbar">
+          <app-top-navbar></app-top-navbar>
+        </div>
+        <!-- End:   Top Navbar -->
+      </div>
+    </div>
   </div>
+
+
+
 </div>
