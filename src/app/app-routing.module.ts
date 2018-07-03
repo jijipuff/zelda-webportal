@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { BursaryDetailsComponent } from './components/bursary-details/bursary-details.component';
 import { EditBursaryComponent } from './components/edit-bursary/edit-bursary.component';
 import { AddBursaryComponent } from './components/add-bursary/add-bursary.component';
+import { BursariesComponent } from './components/bursaries/bursaries.component';
 
 import { AuthGuard } from './guards/auth.guard';
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'bursaries', component: BursariesComponent, canActivate: [AuthGuard]},
   { path: 'bursary/add', component: AddBursaryComponent, canActivate: [AuthGuard] },
   { path: 'bursary/:id', component: BursaryDetailsComponent, canActivate: [AuthGuard] },
   { path: 'bursary/edit/:id', component: EditBursaryComponent, canActivate: [AuthGuard] },

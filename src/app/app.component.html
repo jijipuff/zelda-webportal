@@ -1,5 +1,19 @@
-<app-navbar></app-navbar>
 <div>
-    <flash-messages></flash-messages>
-    <router-outlet></router-outlet>
+    <div *ngIf="isLoggedIn" >
+        <app-navbar></app-navbar>
+    </div>
+    
+    <section>
+        <div [ngClass]="{'container-fluid' : isLoggedIn}">
+            <div [ngClass]="{'row' : isLoggedIn}">
+                <div [ngClass]="{'col-xl-10 col-lg-9 col-md-8 ml-auto' : isLoggedIn}">
+                    <!-- (inject notifications) -->
+                    <flash-messages></flash-messages>
+                    
+                    <!-- (inject views) -->
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
