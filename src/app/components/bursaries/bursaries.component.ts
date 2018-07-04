@@ -13,11 +13,6 @@ export class BursariesComponent implements OnInit {
   constructor(private bursaryService: BursaryService) { }
 
   ngOnInit() {
-    this.bursaryService.getBursaries().subscribe(dataPayload => {
-      this.bursaries = dataPayload;
-      console.log(this.bursaries);
-      console.log('Hello World');
-    });
   }
 
 }

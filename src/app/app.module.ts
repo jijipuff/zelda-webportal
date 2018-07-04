@@ -2,34 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/Forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { RegisterComponent } from './components/register/register.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-import { BursaryService } from './services/bursary.service';
-import { AuthService } from './services/auth.service';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
 import { PanelLayoutComponent } from './components/panel-layout/panel-layout.component';
 
+import { BursaryService } from './services/bursary.service';
+import { AuthService } from './services/auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    RegisterComponent,
-    LoginComponent,
     HomeComponent,
+    LoginComponent,
+    RegisterComponent,
     NotFoundComponent,
     TopNavbarComponent,
     SideNavbarComponent,
@@ -40,7 +37,7 @@ import { PanelLayoutComponent } from './components/panel-layout/panel-layout.com
     FormsModule,
     FlashMessagesModule.forRoot(),
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase, 'zeldatestapp'),
+    AngularFireModule.initializeApp(environment.firebase, 'zeldav1-dev'),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],

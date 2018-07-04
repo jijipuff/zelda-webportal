@@ -12,11 +12,17 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: PanelLayoutComponent,
     children: [{
       path: '',
       loadChildren: './components/panel-layout/panel-layout.module#PanelLayoutModule'
-    }]
+    }],
+    canActivate: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
