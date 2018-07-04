@@ -1,0 +1,23 @@
+<div class="nav navbar navbar-expand-md navbar-light">
+  <button class="navbar-toggler ml-auto mb-2 bg-light" data-toggle="collapse" data-target="#myNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="myNavbar">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Side Navbar View -->
+        <app-side-navbar></app-side-navbar>
+
+        <!-- Top Navbar View -->
+        <app-top-navbar></app-top-navbar>
+
+        <!-- inject child views -->
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <router-outlet></router-outlet>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

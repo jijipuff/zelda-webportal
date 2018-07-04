@@ -10,10 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { BursariesComponent } from './components/bursaries/bursaries.component';
-import { AddBursaryComponent } from './components/add-bursary/add-bursary.component';
-import { EditBursaryComponent } from './components/edit-bursary/edit-bursary.component';
-import { BursaryDetailsComponent } from './components/bursary-details/bursary-details.component';
+
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
@@ -24,7 +21,7 @@ import { BursaryService } from './services/bursary.service';
 import { AuthService } from './services/auth.service';
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PanelLayoutComponent } from './components/panel-layout/panel-layout.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +31,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     LoginComponent,
     HomeComponent,
     NotFoundComponent,
-    BursariesComponent,
-    AddBursaryComponent,
-    EditBursaryComponent,
-    BursaryDetailsComponent,
     TopNavbarComponent,
     SideNavbarComponent,
-    DashboardComponent
+    PanelLayoutComponent
   ],
   imports: [
     BrowserModule,
