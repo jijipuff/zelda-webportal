@@ -19,6 +19,11 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.authService.getAuth().subscribe((auth) => {
+      if (auth) {
+        this.router.navigate(['/']);
+      }
+    });
   }
 
   onSubmit() {
