@@ -1,7 +1,7 @@
 export interface ClientAdmin {
-    id: string;
-    clientId: string;
+    clientAdminId: string;
     email: string;
-    firstName: string;
-    lastName: string;
+    clientId?: string;
+    firstName?: string;
+    lastName?: string;
 }

@@ -13,9 +13,6 @@ export const environment = {
     messagingSenderId: '317546250483'
   }
 };
-
-
-
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can

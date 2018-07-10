@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   email: string;
   password: string;
+  clientId: string;
 
   constructor(
     private authService: AuthService,
@@ -29,15 +30,18 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.authService.register(this.email, this.password)
     .then((res) => {
-      this.flashMessages.show('You are registered', {
-        cssClass: 'alert-success', timeout: 3000
-      });
+      // this.flashMessages.show('You are registered', {
+      //   cssClass: 'alert-success', timeout: 3000
+      // });
+      console.log(res);
+      this.authService.addClientIdOnRegistration(res, this.clientId);
       this.router.navigate(['/']);
     })
     .catch((err) => {
-      this.flashMessages.show(err.message, {
-        cssClass: 'alert-danger', timeout: 3000
-      });
+      // this.flashMessages.show(err.message, {
+      //   cssClass: 'alert-danger', timeout: 3000
+      // });
+      console.log(err.message);
     });
   }
 }

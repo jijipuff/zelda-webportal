@@ -6,6 +6,7 @@ import { AppRoutingModule } from './/app-routing.module';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
@@ -38,6 +39,7 @@ import { AuthService } from './services/auth.service';
     FlashMessagesModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'zeldav1-dev'),
+    AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
