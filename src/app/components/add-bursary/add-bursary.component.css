@@ -1,0 +1,26 @@
+label {
+    color: #1D3C32;
+    font-weight: bold;
+    background-color: #c0c0c0;
+    border-radius: 5px;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+.card-style {
+    
+    border-color: #1D3C32;
+}
+
+.custom-class-example {
+    color: #ccc;
+}
+.custom-class-example .c-token{
+    background: #38d574 !important;
+}
+.custom-class-example .pure-checkbox label::before {
+    border-color: #38d574 !important;
+}
+.custom-class-example .pure-checkbox input[type="checkbox"]:checked + label[_ngcontent-c1]:before {
+    background: #38d574 !important;
+}

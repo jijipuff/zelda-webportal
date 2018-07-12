@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/Forms';
+import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -34,13 +34,13 @@ import { AuthService } from './services/auth.service';
     PanelLayoutComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     FlashMessagesModule.forRoot(),
-    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'zeldav1-dev'),
-    AngularFirestoreModule,
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     AngularFireAuthModule
   ],
   providers: [

@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CKEditorModule } from 'ng2-ckeditor';
 import { PanelLayoutRoutes } from './panel-layout.routing';
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 
 import { BursaryDetailsComponent } from '../../components/bursary-details/bursary-details.component';
 import { EditBursaryComponent } from '../../components/edit-bursary/edit-bursary.component';
@@ -11,8 +15,12 @@ import { DashboardComponent } from '../../components/dashboard/dashboard.compone
 
 @NgModule({
   imports: [
+    RouterModule.forChild(PanelLayoutRoutes),
+    AngularDateTimePickerModule,
+    AngularMultiSelectModule,
+    CKEditorModule,
     CommonModule,
-    RouterModule.forChild(PanelLayoutRoutes)
+    FormsModule
   ],
   declarations: [
     BursaryDetailsComponent,

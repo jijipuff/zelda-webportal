@@ -12,34 +12,117 @@
 <div class="col-12">
   <h3 class="text-muted text-center mb-3 mt-2 well">Upload a new Bursary</h3>
 </div>
-<form>
-  <div class="row">
-    <div class="col-md-6 ml-auto">
-      <div class="card border-secondary">
-        <div class="card-header">
-          Section 1
-        </div>
-        <div class="card body">
+
+<div class="card card-style">
+  <div class="card-body">
+    <form>
+      <div class="row">
+        <div class="col">
           <div class="form-group">
-            <label>Page Body</label>
-            <textarea name="editor1" class="form-control" placeholder="Page Body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                              </textarea>
+            <label>Title</label>
+            <input type="text" class="form-control" name="title">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <label>Bursary Link</label>
+            <input type="text" class="form-control" name="bursaryLink">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+        <label>Closing Date</label>
+        <div>
+          <angular2-date-picker
+            name="closingDate"
+            [(ngModel)]="closingDate"
+            [settings]="{
+              bigBanner: true,
+              timePicker: true,
+              format: 'dd-MM-yyyy hh:mm a'
+            }"
+          > 
+          </angular2-date-picker>
+        </div>
+      </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label>Fields</label>
+            <div class="form-control">
+              <angular2-multiselect
+                name="selectedFields"
+                [data]="fields"
+                [(ngModel)]="selectedFields"
+                [settings]="dropdownSettings"
+                (onSelect)="onItemSelect($event)"
+                (onDeSelect)="OnItemDeSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                (onDeSelectAll)="onDeSelectAll($event)"
+              >
+              </angular2-multiselect>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <label>Applicable Fields</label>
+            <div class="form-control">
+              <angular2-multiselect
+                name="selectedApplicableFields"
+                [data]="applicableFields"
+                [(ngModel)]="selectedApplicableFields"
+                [settings]="dropdownSettings"
+                (onSelect)="onItemSelect($event)"
+                (onDeSelect)="OnItemDeSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                (onDeSelectAll)="onDeSelectAll($event)"
+              >
+              </angular2-multiselect>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-6 mr-auto">
-      <div class="card border-secondary ">
-        <div class="card-header">
-          Section 2
+
+      <div class="form-group">
+        <label>Description</label>
+        <div class="form-control">
+          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="decription" name="description">
+          </ckeditor>
         </div>
       </div>
-    </div>
+
+      <div class="form-group">
+        <label>Application Process</label>
+        <div class="form-control">
+          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="applicationProcess" name="applicationProcess">
+          </ckeditor>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Requirements</label>
+        <div class="form-control">
+          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="requirements" name="requirements">
+          </ckeditor>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Support Provided</label>
+        <div class="form-control">
+          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="supportProvided" name="supportProvided">
+          </ckeditor>
+        </div>
+      </div>
+      
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </form>
   </div>
-
-</form>
-
-<script>
-  CKEDITOR.replace('editor1');
-</script>
+</div>
