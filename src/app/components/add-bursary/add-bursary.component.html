@@ -15,38 +15,46 @@
 
 <div class="card card-style">
   <div class="card-body">
-    <form>
+    <form #bursaryForm="ngForm" (ngSubmit)="onSubmit(bursaryForm)" >
       <div class="row">
         <div class="col">
           <div class="form-group">
             <label>Title</label>
-            <input type="text" class="form-control" name="title">
+            <input type="text" class="form-control" name="title" #bursaryTitle="ngModel" minlength="2" required
+            [(ngModel)]="bursary.title" [ngClass]=" {'is-invalid': bursaryTitle.errors && bursaryTitle.touched } ">
+            <div class="invalid-feedback" [hidden]="!bursaryTitle.errors?.required" >
+              Title is required
+            </div>
+            <div class="invalid-feedback" [hidden]="!bursaryTitle.errors?.minlength" >
+              Must be at least 2 characters
+            </div>
           </div>
         </div>
 
         <div class="col">
           <div class="form-group">
             <label>Bursary Link</label>
-            <input type="text" class="form-control" name="bursaryLink">
+            <input type="text" class="form-control" name="bursaryUrl" [(ngModel)]="bursary.bursaryUrl" >
           </div>
         </div>
 
         <div class="col">
           <div class="form-group">
-        <label>Closing Date</label>
-        <div>
-          <angular2-date-picker
-            name="closingDate"
-            [(ngModel)]="closingDate"
-            [settings]="{
-              bigBanner: true,
-              timePicker: true,
-              format: 'dd-MM-yyyy hh:mm a'
-            }"
-          > 
-          </angular2-date-picker>
-        </div>
-      </div>
+            <label>Closing Date {{ bursary.closingDate }} </label>
+            <div>
+              <angular2-date-picker
+                name="closingDate"
+                [(ngModel)]="bursary.closingDate"
+                [settings]="{
+                  bigBanner: true,
+                  timePicker: true,
+                  format: 'dd-MM-yyyy hh:mm',
+                  defaultOpen: false
+                }"
+              > 
+              </angular2-date-picker>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -56,14 +64,10 @@
             <label>Fields</label>
             <div class="form-control">
               <angular2-multiselect
-                name="selectedFields"
-                [data]="fields"
-                [(ngModel)]="selectedFields"
+                name="fields"
+                [data]="fieldsOptions"
+                [(ngModel)]="bursary.fields"
                 [settings]="dropdownSettings"
-                (onSelect)="onItemSelect($event)"
-                (onDeSelect)="OnItemDeSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
-                (onDeSelectAll)="onDeSelectAll($event)"
               >
               </angular2-multiselect>
             </div>
@@ -75,14 +79,10 @@
             <label>Applicable Fields</label>
             <div class="form-control">
               <angular2-multiselect
-                name="selectedApplicableFields"
-                [data]="applicableFields"
-                [(ngModel)]="selectedApplicableFields"
+                name="applicableFields"
+                [data]="applicableFieldsOptions"
+                [(ngModel)]="bursary.applicableFields"
                 [settings]="dropdownSettings"
-                (onSelect)="onItemSelect($event)"
-                (onDeSelect)="OnItemDeSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
-                (onDeSelectAll)="onDeSelectAll($event)"
               >
               </angular2-multiselect>
             </div>
@@ -93,7 +93,7 @@
       <div class="form-group">
         <label>Description</label>
         <div class="form-control">
-          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="decription" name="description">
+          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="bursary.description" name="description">
           </ckeditor>
         </div>
       </div>
@@ -101,7 +101,7 @@
       <div class="form-group">
         <label>Application Process</label>
         <div class="form-control">
-          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="applicationProcess" name="applicationProcess">
+          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="bursary.applicationProcess" name="applicationProcess">
           </ckeditor>
         </div>
       </div>
@@ -109,7 +109,7 @@
       <div class="form-group">
         <label>Requirements</label>
         <div class="form-control">
-          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="requirements" name="requirements">
+          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="bursary.requirements" name="requirements">
           </ckeditor>
         </div>
       </div>
@@ -117,7 +117,7 @@
       <div class="form-group">
         <label>Support Provided</label>
         <div class="form-control">
-          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="supportProvided" name="supportProvided">
+          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="bursary.supportProvided" name="supportProvided">
           </ckeditor>
         </div>
       </div>
