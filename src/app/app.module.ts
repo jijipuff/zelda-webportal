@@ -19,7 +19,9 @@ import { TopNavbarComponent } from './components/top-navbar/top-navbar.component
 import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
 import { PanelLayoutComponent } from './components/panel-layout/panel-layout.component';
 
+import { ClientAdminService } from './services/client-admin.service';
 import { BursaryService } from './services/bursary.service';
+import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 
 @NgModule({
@@ -45,7 +47,9 @@ import { AuthService } from './services/auth.service';
     AngularFireAuthModule
   ],
   providers: [
+    ClientAdminService,
     BursaryService,
+    ClientService,
     AuthService
   ],
   bootstrap: [AppComponent]

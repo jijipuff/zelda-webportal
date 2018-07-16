@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Bursary } from '../../models/Bursary';
 import { DatePicker } from 'angular2-datetimepicker';
+import { AuthService } from '../../services/auth.service';
 import { BursaryService } from '../../services/bursary.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-bursary',
@@ -13,14 +13,14 @@ export class AddBursaryComponent implements OnInit {
   @ViewChild('bursaryForm') form: any;
 
   bursary: Bursary = {
-    title: 'tiro',
-    bursaryUrl: 'linkedIn',
+    title: '',
+    bursaryUrl: '',
     fields: [],
     applicableFields: [],
-    description: '<p>This is a decription. This is&nbsp;<strong>Bold</strong>&nbsp;text:</p>',
-    applicationProcess: '<p>This is a decription. This is&nbsp;<strong>Bold</strong>&nbsp;text:</p>',
-    supportProvided: '<p>This is a decription. This is&nbsp;<strong>Bold</strong>&nbsp;text:</p>',
-    requirements: '<p>This is a decription. This is&nbsp;<strong>Bold</strong>&nbsp;text:</p>',
+    description: '',
+    applicationProcess: '',
+    supportProvided: '',
+    requirements: '',
     closingDate: new Date(),
     clientId: ''
   };
@@ -29,8 +29,11 @@ export class AddBursaryComponent implements OnInit {
   applicableFieldsOptions = [];
   dropdownSettings = {};
 
+  clientId: string;
+
   constructor(
-    private bursaryService: BursaryService
+    private bursaryService: BursaryService,
+    private authService: AuthService,
   ) {
     // hack to fix the DatePicker getMonth Html Error
     DatePicker.prototype.ngOnInit = function () {
@@ -40,6 +43,11 @@ export class AddBursaryComponent implements OnInit {
       }
       this.date = new Date();
     };
+
+    this.authService.clientAdmin.subscribe(data => {
+      this.clientId = data.clientId;
+    });
+
   }
 
   ngOnInit() {
@@ -71,9 +79,8 @@ export class AddBursaryComponent implements OnInit {
     } else {
       value.fields = value.fields.map((a: any) => a.itemName.toString());
       value.applicableFields = value.applicableFields.map((b: any) => b.itemName.toString());
-      // console.log(value);
+      value.clientId = this.clientId;
       this.bursaryService.addBursary(value);
     }
   }
-
 }

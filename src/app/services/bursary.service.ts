@@ -31,7 +31,6 @@ export class BursaryService {
   }
 
   addBursary(newBursary: Bursary) {
-    newBursary.clientId = '12345';
     this.bursariesCollection.add(newBursary);
   }
 
