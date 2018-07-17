@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { Bursary } from '../models/Bursary';
 import { map } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +14,16 @@ export class BursaryService {
   bursaries: Observable<Bursary[]>;
   bursary: Observable<Bursary>;
 
+  clientId: string;
+
   constructor(
+    private authService: AuthService,
     private afs: AngularFirestore
   ) {
-    this.bursariesCollection = this.afs.collection('Bursaries', ref => ref.orderBy('title', 'asc'));
+    this.authService.clientAdmin.subscribe(auth => {
+      this.clientId = auth.clientId;
+    });
+    this.bursariesCollection = this.afs.collection('Bursaries', ref => ref.where('clientId', '==', 'OtGLJR9xaw6lsJxHXa4F'));
   }
 
   getBursaries(): Observable<Bursary[]> {

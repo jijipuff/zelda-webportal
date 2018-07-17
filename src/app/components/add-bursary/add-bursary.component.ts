@@ -45,7 +45,10 @@ export class AddBursaryComponent implements OnInit {
     };
 
     this.authService.clientAdmin.subscribe(data => {
-      this.clientId = data.clientId;
+      if (data) {
+        this.clientId = data.clientId;
+        console.log(this.clientId);
+      }
     });
 
   }

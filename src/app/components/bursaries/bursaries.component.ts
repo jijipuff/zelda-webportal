@@ -13,6 +13,9 @@ export class BursariesComponent implements OnInit {
   constructor(private bursaryService: BursaryService) { }
 
   ngOnInit() {
+    this.bursaryService.getBursaries().subscribe(data => {
+      this.bursaries = data;
+    });
   }
 
 }
