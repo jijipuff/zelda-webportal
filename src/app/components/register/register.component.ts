@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +14,6 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private flashMessages: FlashMessagesService,
     private router: Router
   ) { }
 
@@ -30,7 +28,6 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.authService.register(this.email, this.password)
     .then((res) => {
-      // console.log(res);
       this.authService.addClientIdOnRegistration(res, this.clientId);
       this.router.navigate(['/']);
     })
