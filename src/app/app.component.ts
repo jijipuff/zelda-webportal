@@ -8,20 +8,19 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  isLoggedIn: boolean;
 
   constructor(
     private authService: AuthService
   ) { }
 
-
   ngOnInit() {
-    this.authService.getAuth().subscribe((auth) => {
+    this.authService.clientAdmin.subscribe(auth => {
       if (auth) {
-        this.isLoggedIn = true;
-      } else {
-        this.isLoggedIn = false;
+        if (localStorage.getItem('clientId') == null || localStorage.getItem('clientId') !== auth.clientId) {
+          localStorage.setItem('clientId', auth.clientId);
+        }
       }
     });
+
   }
 }

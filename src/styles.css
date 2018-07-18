@@ -16,3 +16,8 @@ p {
 .box {
     border: 1px red dotted;
 }
+
+.auth-wrapper {
+    background: #343A40 !important;	
+    height: 100vh;
+}
