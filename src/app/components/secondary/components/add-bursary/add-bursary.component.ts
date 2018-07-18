@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Bursary } from '../../models/Bursary';
+import { Bursary } from '../../../../models/Bursary';
 import { DatePicker } from 'angular2-datetimepicker';
-import { AuthService } from '../../services/auth.service';
-import { BursaryService } from '../../services/bursary.service';
+import { AuthService } from '../../../../services/auth.service';
+import { BursaryService } from '../../../../services/bursary.service';
 
 @Component({
   selector: 'app-add-bursary',

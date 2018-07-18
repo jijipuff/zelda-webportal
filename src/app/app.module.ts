@@ -11,13 +11,12 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
-import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
-import { PanelLayoutComponent } from './components/panel-layout/panel-layout.component';
+import { LoginComponent } from './components/primary/login/login.component';
+import { RegisterComponent } from './components/primary/register/register.component';
+import { NotFoundComponent } from './components/primary/not-found/not-found.component';
+import { TopNavbarComponent } from './components/primary/top-navbar/top-navbar.component';
+import { SideNavbarComponent } from './components/primary/side-navbar/side-navbar.component';
+import { PanelLayoutComponent } from './components/secondary/panel-layout.component';
 
 import { ClientAdminService } from './services/client-admin.service';
 import { BursaryService } from './services/bursary.service';
@@ -27,7 +26,6 @@ import { AuthService } from './services/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
