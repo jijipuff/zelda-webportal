@@ -1,13 +1,9 @@
 .sidebar {
     height: 100vh;
-    /* background-color: #3c1d27; */
-    /* background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,0)); */
-    /* background: linear-gradient(#14090D, #3c1d27, url("../../../../src/assets/img/side-navbar-bg.jpeg")); */
-    background: linear-gradient(#14090D, #3c1d27);
+    background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.63)), url(../../../../assets/img/sidebar-bg.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 5px 7px 25px #999;
 }
 
 .bottom-border {

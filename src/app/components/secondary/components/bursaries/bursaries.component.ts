@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BursaryService } from '../../services/bursary.service';
-import { Bursary } from '../../models/Bursary';
+import { BursaryService } from '../../../../services/bursary.service';
+import { Bursary } from '../../../../models/Bursary';
 
 @Component({
   selector: 'app-bursaries',
@@ -13,6 +13,9 @@ export class BursariesComponent implements OnInit {
   constructor(private bursaryService: BursaryService) { }
 
   ngOnInit() {
+    this.bursaryService.getBursaries().subscribe(data => {
+      this.bursaries = data;
+    });
   }
 
 }

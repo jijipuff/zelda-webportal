@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-12">
-    <h3 class="text-muted text-center mb-3 mt-2">Uploaded Bursaries</h3>
+  <div class="col-md-9 box">
+    <h3 class="text-muted text-center mb-3 mt-2 txt">Uploaded Bursaries</h3>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-9 box">
     <div class="card">
       <div class="card-body">
         <table class="table bg-light text-center table-responsive table-striped">
@@ -10,14 +10,14 @@
             <tr class="text-muted">
               <th>Title</th>
               <th>Closing Date</th>
-              <th>Field</th>
+              <th>Link</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Nedbank STEM Bursary</td>
-              <td>23 August 2018</td>
-              <td>STEM Subjects</td>
+            <tr *ngFor="let bursary of bursaries" >
+              <td> {{ bursary.title }} </td>
+              <td> {{ bursary.closingDate | date:'MM/dd/yy' }} </td>
+              <td> {{ bursary.bursaryUrl }} </td>
               <td>
                 <a href="#" class="btn btn-secondary btn-sm">
                   <i class="fa fa-arrow-circle-o-right mr-1"></i>More Details
@@ -32,7 +32,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 box">
     <div class="card border-success">
       <div class="card-body">
         <a routerLink="/bursary/add" class="btn btn-success btn-block text-center">

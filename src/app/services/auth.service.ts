@@ -11,6 +11,7 @@ import { ClientAdmin } from '../models/ClientAdmin';
 export class AuthService {
   clientAdminDocument: AngularFirestoreDocument<ClientAdmin>;
   clientAdmin: Observable<ClientAdmin>;
+  clientId: string;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -28,7 +29,8 @@ export class AuthService {
         }
       })
     );
-   }
+  }
+
 
   login(email: string, password: string) {
     return new Promise((resolve, reject) => {
@@ -69,6 +71,6 @@ export class AuthService {
       email: userData.user.email,
       clientId: clientId
     };
-    return this.clientAdminDocument.set(data);
+    return this.clientAdminDocument.set(data, {merge: true});
   }
 }
