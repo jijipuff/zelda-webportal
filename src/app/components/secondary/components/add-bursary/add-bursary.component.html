@@ -41,21 +41,17 @@
         <div class="col">
           <div class="form-group">
             <label>Closing Date</label>
-            <div>
-              <angular2-date-picker
-                name="closingDate"
-                [(ngModel)]="bursary.closingDate"
-                [settings]="{
-                  bigBanner: true,
-                  timePicker: true,
-                  format: 'dd-MM-yyyy hh:mm',
-                  defaultOpen: false
-                }"
-              > 
-              </angular2-date-picker>
-            </div>
+            <input
+              name="closingDate"
+              placeholder="Date Time:"
+              [(ngModel)]="bursary.closingDate"
+              [owlDateTimeTrigger]="dt"
+              [owlDateTime]="dt"
+              class="form-control">
+              <owl-date-time #dt></owl-date-time>
           </div>
         </div>
+
       </div>
 
       <div class="row">
@@ -93,7 +89,7 @@
       <div class="form-group">
         <label>Description</label>
         <div class="form-control">
-          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="bursary.description" name="description">
+          <ckeditor [config]="{extraPlugins: 'divarea'}" [(ngModel)]="bursary.description" name="description">
           </ckeditor>
         </div>
       </div>
@@ -101,7 +97,7 @@
       <div class="form-group">
         <label>Application Process</label>
         <div class="form-control">
-          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="bursary.applicationProcess" name="applicationProcess">
+          <ckeditor [config]="{uiColor: '#c0c0c0', extraPlugins: 'divarea'}" [(ngModel)]="bursary.applicationProcess" name="applicationProcess">
           </ckeditor>
         </div>
       </div>
@@ -109,7 +105,7 @@
       <div class="form-group">
         <label>Requirements</label>
         <div class="form-control">
-          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="bursary.requirements" name="requirements">
+          <ckeditor [config]="{uiColor: '#c0c0c0', extraPlugins: 'divarea'}" [(ngModel)]="bursary.requirements" name="requirements">
           </ckeditor>
         </div>
       </div>
@@ -117,7 +113,7 @@
       <div class="form-group">
         <label>Support Provided</label>
         <div class="form-control">
-          <ckeditor [config]="{uiColor: '#c0c0c0'}" [(ngModel)]="bursary.supportProvided" name="supportProvided">
+          <ckeditor [config]="{uiColor: '#c0c0c0', extraPlugins: 'divarea'}" [(ngModel)]="bursary.supportProvided" name="supportProvided">
           </ckeditor>
         </div>
       </div>

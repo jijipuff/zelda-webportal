@@ -1,13 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+// import { CKEDITOR } from 'ng2-ckeditor/ng2-ckeditor';
 import { Bursary } from '../../../../models/Bursary';
-import { DatePicker } from 'angular2-datetimepicker';
 import { AuthService } from '../../../../services/auth.service';
 import { BursaryService } from '../../../../services/bursary.service';
 
 @Component({
   selector: 'app-add-bursary',
   templateUrl: './add-bursary.component.html',
-  styleUrls: ['./add-bursary.component.css']
+  styleUrls: ['./add-bursary.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddBursaryComponent implements OnInit {
   @ViewChild('bursaryForm') form: any;
@@ -35,22 +36,12 @@ export class AddBursaryComponent implements OnInit {
     private bursaryService: BursaryService,
     private authService: AuthService,
   ) {
-    // hack to fix the DatePicker getMonth Html Error
-    DatePicker.prototype.ngOnInit = function () {
-      this.settings = Object.assign(this.defaultSettings, this.settings);
-      if (this.settings.defaultOpen) {
-        this.popover = true;
-      }
-      this.date = new Date();
-    };
-
     this.authService.clientAdmin.subscribe(data => {
       if (data) {
         this.clientId = data.clientId;
         console.log(this.clientId);
       }
     });
-
   }
 
   ngOnInit() {
@@ -83,7 +74,29 @@ export class AddBursaryComponent implements OnInit {
       value.fields = value.fields.map((a: any) => a.itemName.toString());
       value.applicableFields = value.applicableFields.map((b: any) => b.itemName.toString());
       value.clientId = this.clientId;
-      this.bursaryService.addBursary(value);
+
+      this.bursaryService.addBursary(value)
+      .then(res => {
+        console.log(res);
+        this.bursary = {
+          title: '',
+          bursaryUrl: '',
+          fields: [],
+          applicableFields: [],
+          description: '',
+          applicationProcess: '',
+          supportProvided: '',
+          requirements: '',
+          closingDate: new Date(),
+          clientId: ''
+        };
+        // for (const name of CKEDITOR.instances) {
+        //   CKEDITOR.instances[name].destroy(true);
+        // }
+      })
+      .catch(err => {
+        console.log(err);
+      });
     }
   }
 }

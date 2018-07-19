@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -36,6 +37,7 @@ import { AuthService } from './services/auth.service';
   imports: [
     ReactiveFormsModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     FlashMessagesModule.forRoot(),

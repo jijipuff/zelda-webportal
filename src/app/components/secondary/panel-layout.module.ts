@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { PanelLayoutRoutes } from './panel-layout.routing';
-import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 
 import { BursaryDetailsComponent } from './components/bursary-details/bursary-details.component';
@@ -16,7 +16,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 @NgModule({
   imports: [
     RouterModule.forChild(PanelLayoutRoutes),
-    AngularDateTimePickerModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
     AngularMultiSelectModule,
     CKEditorModule,
     CommonModule,

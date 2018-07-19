@@ -16,10 +16,10 @@
           <tbody>
             <tr *ngFor="let bursary of bursaries" >
               <td> {{ bursary.title }} </td>
-              <td> {{ bursary.closingDate | date:'MM/dd/yy' }} </td>
+              <td> {{ bursary.closingDate.toDate() | date:'medium' }} </td>
               <td> {{ bursary.bursaryUrl }} </td>
               <td>
-                <a href="#" class="btn btn-secondary btn-sm">
+                <a routerLink="/bursary/{{bursary.bursaryId}}" class="btn btn-secondary btn-sm">
                   <i class="fa fa-arrow-circle-o-right mr-1"></i>More Details
                 </a>
               </td>

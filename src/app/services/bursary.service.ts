@@ -35,8 +35,28 @@ export class BursaryService {
     return this.bursaries;
   }
 
+  getBursary(id: string): Observable<Bursary> {
+    this.bursaryDocument = this.afs.doc<Bursary>(`Bursaries/${id}`);
+    this.bursary = this.bursaryDocument.valueChanges().pipe(map(data => {
+      if (data) {
+        return data as Bursary;
+      } else {
+        return null;
+      }
+    }));
+    return this.bursary;
+  }
+
   addBursary(newBursary: Bursary) {
-    this.bursariesCollection.add(newBursary);
+    return new Promise((resolve, reject) => {
+      this.bursariesCollection.add(newBursary)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(err => {
+        reject(err);
+      });
+    });
   }
 
 }

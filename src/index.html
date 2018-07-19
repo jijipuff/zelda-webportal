@@ -7,8 +7,18 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="https://cdn.ckeditor.com/4.10.0/basic/ckeditor.js"></script>
-  <!-- basic, standard, full -->
+  <!-- basic, standard, full => CKEditor CDN
+  <script src="https://cdn.ckeditor.com/4.10.0/full-all/ckeditor.js"></script> -->
+  <!-- 
+    ** Instead of using the cdn above for the bursary upload form
+    ** I built a suitable ckeditor at: https://ckeditor.com/cke4/builder
+    ** then added it to assets and referenced it as below
+    ** so i did this because with the cdn i was getting a bug 'editor-destroy-iframe'
+    ** it needed the 'divarea' plugin which the cdn basic ckeditor did not have
+    ** so I configured the ckeditor and added the 'divarea' plugin
+   -->
+  <script src="./assets/ckeditor/ckeditor.js"></script>
+  
 </head>
 <body>
   <app-root></app-root>
