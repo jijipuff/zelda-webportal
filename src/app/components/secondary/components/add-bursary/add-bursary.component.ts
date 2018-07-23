@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-// import { CKEDITOR } from 'ng2-ckeditor/ng2-ckeditor';
+import { Router } from '@angular/router';
 import { Bursary } from '../../../../models/Bursary';
 import { AuthService } from '../../../../services/auth.service';
 import { BursaryService } from '../../../../services/bursary.service';
+import { DropdownItems } from '../../../../data-objects/dropdown-items';
 
 @Component({
   selector: 'app-add-bursary',
@@ -35,6 +36,7 @@ export class AddBursaryComponent implements OnInit {
   constructor(
     private bursaryService: BursaryService,
     private authService: AuthService,
+    private router: Router
   ) {
     this.authService.clientAdmin.subscribe(data => {
       if (data) {
@@ -45,17 +47,9 @@ export class AddBursaryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fieldsOptions = [
-      { 'id': 1, 'itemName': 'Science' },
-      { 'id': 2, 'itemName': 'Enginnering' },
-      { 'id': 3, 'itemName': 'Mathematics' }
-    ];
+    this.fieldsOptions = DropdownItems.fieldOptions;
 
-    this.applicableFieldsOptions = [
-      { 'id': 1, 'itemName': 'Systems Engineering' },
-      { 'id': 2, 'itemName': 'Software Engineering' },
-      { 'id': 3, 'itemName': 'Data Science' }
-    ];
+    this.applicableFieldsOptions = DropdownItems.applicableFieldsOptions;
 
     this.dropdownSettings = {
       singleSelection: false,
@@ -78,21 +72,7 @@ export class AddBursaryComponent implements OnInit {
       this.bursaryService.addBursary(value)
       .then(res => {
         console.log(res);
-        this.bursary = {
-          title: '',
-          bursaryUrl: '',
-          fields: [],
-          applicableFields: [],
-          description: '',
-          applicationProcess: '',
-          supportProvided: '',
-          requirements: '',
-          closingDate: new Date(),
-          clientId: ''
-        };
-        // for (const name of CKEDITOR.instances) {
-        //   CKEDITOR.instances[name].destroy(true);
-        // }
+        this.router.navigate(['/bursaries']);
       })
       .catch(err => {
         console.log(err);

@@ -12,8 +12,150 @@
       <button (click)="onDeleteClick()" class="btn btn-danger">Delete</button>
     </div>
   </div>
+</div>
 
-  <div *ngIf="bursary">
-     {{bursary.description}}
+<hr>
+
+<div *ngIf="bursary" class="card card-style">
+  <h5 class="card-header"> <span><label> Title: </label></span> {{ bursary.title }} </h5>
+  <div class="card-body">
+
+    <!-- link and closing Date -->
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <h5> <span><label> Link: </label></span> {{ bursary.bursaryUrl }} </h5>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <h5>
+          <span>
+            <label> Closing Date: </label>
+          </span> {{ bursary.closingDate | date:'medium' }}
+          <small class="pull-right" >
+            <a (click)="showClosingDateUpdateInput = !showClosingDateUpdateInput" class="dropbtn">
+              <span *ngIf="!showClosingDateUpdateInput"><i class="fa fa-pencil mr-1"></i>Update</span>
+              <span *ngIf="showClosingDateUpdateInput"><i class="fa fa-close mr-1"></i>Cancel</span>
+            </a>
+          </small>
+        </h5>
+
+        <!-- this form pops up if the showClosingDateUpdateInput is true -->
+        <div class="clear-fix">
+          <form *ngIf="showClosingDateUpdateInput" (submit)="updateClosingDate()" class="mb-2">
+            <div class="input-group">
+              <input
+              name="closingDate"
+              placeholder="Date Time:"
+              [(ngModel)]="bursary.closingDate"
+              [owlDateTimeTrigger]="dt1"
+              [owlDateTime]="dt1"
+              class="form-control">
+              <owl-date-time [pickerMode]="'dialog'" #dt1></owl-date-time>
+              <span class="input-group-btn ml-1">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Fields and Applicable Fields -->
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <label>Fields</label> <button class="dropbtn ml-2" (click)="showFields = !showFields">
+          <span *ngIf="!showFields"><i class="fa fa-eye mr-1"></i>Show</span>
+          <span *ngIf="showFields"><i class="fa fa-eye-slash mr-1"></i>Hide</span>
+        </button>
+        <div *ngIf="showFields" class="dropdown-content">
+          <ul>
+            <li *ngFor="let field of bursary.fields"> {{field}} </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-6">
+        <label>Applicable Fields</label>
+        <button class="dropbtn ml-2" (click)="showApplicableFields = !showApplicableFields">
+          <span *ngIf="!showApplicableFields"><i class="fa fa-eye mr-1"></i>Show</span>
+          <span *ngIf="showApplicableFields"><i class="fa fa-eye-slash mr-1"></i>Hide</span>
+        </button>
+        <div *ngIf="showApplicableFields" class="dropdown-content">
+          <ul>
+            <li *ngFor="let applicableField of bursary.applicableFields"> {{applicableField}} </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header align-content-center text-center">
+            <h5>
+              <label>Description</label>
+            </h5>
+          </div>
+          <div class="card-body">
+            <span [innerHTML]="bursary.description" ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header align-content-center text-center">
+            <h5>
+              <label>Application Process</label>
+            </h5>
+          </div>
+          <div class="card-body">
+            <span [innerHTML]="bursary.applicationProcess"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header align-content-center text-center">
+            <h5>
+              <label>Requirements</label>
+            </h5>
+          </div>
+          <div class="card-body">
+            <span [innerHTML]="bursary.requirements"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header align-content-center text-center">
+            <h5>
+              <label>Support Provided</label>
+            </h5>
+          </div>
+          <div class="card-body">
+            <span [innerHTML]="bursary.supportProvided"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

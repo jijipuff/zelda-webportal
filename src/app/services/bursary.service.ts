@@ -47,10 +47,36 @@ export class BursaryService {
     return this.bursary;
   }
 
-  addBursary(newBursary: Bursary) {
-    return new Promise((resolve, reject) => {
-      this.bursariesCollection.add(newBursary)
+  addBursary(bursary: Bursary) {
+    return new Promise<any>((resolve, reject) => {
+      this.bursariesCollection.add(bursary)
       .then(res => {
+        resolve(res);
+      })
+      .catch(err => {
+        reject(err);
+      });
+    });
+  }
+
+  updateBursary(bursary: Bursary) {
+    return new Promise<any>((resolve, reject) => {
+      this.bursaryDocument = this.afs.doc<Bursary>(`Bursaries/${bursary.bursaryId}`);
+      this.bursaryDocument.update(bursary)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch(err => {
+        reject(err);
+      });
+    });
+  }
+
+  deleleBursary (bursary: Bursary) {
+    return new Promise<any>((resolve, reject) => {
+      this.bursaryDocument = this.afs.doc<Bursary>(`Bursaries/${bursary.bursaryId}`);
+      this.bursaryDocument.delete()
+        .then(res => {
         resolve(res);
       })
       .catch(err => {
