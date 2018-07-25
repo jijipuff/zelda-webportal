@@ -12,6 +12,7 @@ import { EditBursaryComponent } from './components/edit-bursary/edit-bursary.com
 import { AddBursaryComponent } from './components/add-bursary/add-bursary.component';
 import { BursariesComponent } from './components/bursaries/bursaries.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ApplicantsComponent } from './components/applicants/applicants.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     EditBursaryComponent,
     AddBursaryComponent,
     BursariesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ApplicantsComponent
   ]
 })
 export class PanelLayoutModule { }
