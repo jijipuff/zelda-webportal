@@ -5,5 +5,9 @@ export interface Applicant {
     bursaryId?: string;
     firstName?: string;
     lastName?: string;
+    niceDate?: string;
+    gender?: string;
+    race?: string;
+    nationality?: string;
 
 }
