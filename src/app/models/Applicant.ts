@@ -1,6 +1,6 @@
 export interface Applicant {
     applicantId?: string;
-    userId?: string;
+    userId?: string; 
     dateApplied?: Date;
     bursaryId?: string;
     firstName?: string;
@@ -9,5 +9,4 @@ export interface Applicant {
     gender?: string;
     race?: string;
     nationality?: string;
-
 }
