@@ -23,6 +23,7 @@ import { ClientAdminService } from './services/client-admin.service';
 import { BursaryService } from './services/bursary.service';
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
+import { ApplicantService } from './services/applicants.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AuthService } from './services/auth.service';
     ClientAdminService,
     BursaryService,
     ClientService,
-    AuthService
+    AuthService,
+    ApplicantService
   ],
   bootstrap: [AppComponent]
 })
