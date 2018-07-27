@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
@@ -23,6 +23,7 @@ import { ClientAdminService } from './services/client-admin.service';
 import { BursaryService } from './services/bursary.service';
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
+import { ApplicantService } from './services/applicants.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AuthService } from './services/auth.service';
     ClientAdminService,
     BursaryService,
     ClientService,
-    AuthService
+    AuthService,
+    ApplicantService
   ],
   bootstrap: [AppComponent]
 })
