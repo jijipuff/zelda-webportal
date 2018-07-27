@@ -13,6 +13,7 @@ import { AddBursaryComponent } from './components/add-bursary/add-bursary.compon
 import { BursariesComponent } from './components/bursaries/bursaries.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ApplicantsComponent } from './components/applicants/applicants.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { ApplicantsComponent } from './components/applicants/applicants.componen
     AddBursaryComponent,
     BursariesComponent,
     DashboardComponent,
-    ApplicantsComponent
+    ApplicantsComponent,
+    ProfileComponent
   ]
 })
 export class PanelLayoutModule { }

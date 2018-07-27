@@ -1,57 +1,37 @@
-<<<<<<< HEAD
-<div class="row">
+<div class= "row">
   <div class="col-md-12 box">
     <h3 class="text-muted text-center mb-3 mt-2 txt">Applicants</h3>
   </div>
  
 
   <div class="col-md-6 box">
-=======
-
-<div class="row">
-  <div class="col-md-9 box">
-    <h3 class="text-muted text-center mb-3 mt-2 txt">Applicants</h3>
-  </div>
-  <div class="col-md-9 box">
->>>>>>> 43bca9660c826cec33d1478b537eb074fc76b507
     <div class="card">
       <div class="card-body">
         <table class="table bg-light text-center table-responsive table-striped">
           <thead>
             <tr class="text-muted">
-<<<<<<< HEAD
               <th>Applicant</th>
               <th> Date Applied </th>
             </tr>
           </thead>
           <tbody class= "applicants">
-            <tr *ngFor="let applicant of applicants" class="selected" (click)= "showInfo(applicant)" >
-              <td> {{ applicant.firstName }} {{ applicant.lastName }} </td>
-              <td>  {{ applicant.niceDate }} </td>
-             <td>
-               <button id="accept"> Accept </button>
-               <button id="decline"> Decline </button>
-               
-             </td>
             
-=======
-              <th>Applicant Name</th>
-              <th>Date Applied</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let applicant of applicants" >
-              <td> {{ applicant.firstName }} </td>
-              <td> {{ applicant.lastName }} </td>
-              <td> {{ applicant.dateApplied }} </td>
->>>>>>> 43bca9660c826cec33d1478b537eb074fc76b507
-            </tr>
+              <tr  *ngFor="let applicant of applicants" class="selected" (click)= "showInfo(applicant)" >
+                  <td> {{ applicant.firstName }} {{ applicant.lastName }} </td>
+                  <td>  {{ applicant.niceDate }} </td>
+                 <td>
+                   <button id="accept"> Accept </button>
+                   <button id="decline"> Decline </button>
+                   
+                 </td>
+                
+                </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-<<<<<<< HEAD
+
   <div class="col-md-6 box">
       <h4 class= "text-muted text-center mb-3 mt-2 txt"> Student Information</h4>
     <div class="card" *ngIf= "studentInfo">
@@ -105,7 +85,3 @@
     </div>
   </div>
 </div>
-=======
-</div>
-`
->>>>>>> 43bca9660c826cec33d1478b537eb074fc76b507

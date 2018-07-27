@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Applicant } from '../models/Applicant';
 import { map } from 'rxjs/operators';
+import { APPLICANTS } from '../mock-applicants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApplicantService {
   applicantsCollection: AngularFirestoreCollection<Applicant>;
-  applicantsDocument: AngularFirestoreDocument<Applicant>;
+  ApplicantDocument: AngularFirestoreDocument<Applicant>;
   applicants: Observable<Applicant[]>;
-  applicant: Observable<Applicant>;
+  Applicant: Observable<Applicant>;
 
   clientId: string;
 
@@ -20,31 +21,34 @@ export class ApplicantService {
   ) {
     if (localStorage.getItem('clientId') != null) {
       this.clientId = localStorage.getItem('clientId');
-      this.applicantsCollection = this.afs.collection('applicants', ref => ref.where('clientId', '==', this.clientId));
+      this.applicantsCollection = this.afs.collection('Applicants', ref => ref.where('clientId', '==', this.clientId));
     }
   }
 
   getApplicants(): Observable<Applicant[]> {
+    /**
     this.applicants = this.applicantsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(action => {
-        const applicantsData = action.payload.doc.data() as Applicant;
-        applicantsData.applicantId = action.payload.doc.id;
-        return applicantsData;
+        const ApplicantData = action.payload.doc.data() as Applicant;
+        ApplicantData.applicantId = action.payload.doc.id;
+        return ApplicantData;
       });
     }));
     return this.applicants;
+    */
+   return of(APPLICANTS);
   }
 
   getApplicant(id: string): Observable<Applicant> {
-    this.applicantsDocument = this.afs.doc<Applicant>(`Applicants/${id}`);
-    this.applicant = this.applicantsDocument.valueChanges().pipe(map(data => {
+    this.ApplicantDocument = this.afs.doc<Applicant>(`Applicants/${id}`);
+    this.Applicant = this.ApplicantDocument.valueChanges().pipe(map(data => {
       if (data) {
         return data as Applicant;
       } else {
         return null;
       }
     }));
-    return this.applicant;
+    return this.Applicant;
   }
 
   addApplicant(newApplicant: Applicant) {
@@ -60,4 +64,3 @@ export class ApplicantService {
   }
 
 }
-

@@ -14,17 +14,24 @@ export class ApplicantsComponent implements OnInit {
   selectedApplicant: Applicant;
 
   studentInfo: boolean;
+
   
 
-  constructor(private applicantService: ApplicantService) { }
+  constructor(private applicantService: ApplicantService) { 
+    console.log("applicants...");
+  }
 
   ngOnInit() {
     this.applicantService.getApplicants()
     .subscribe(data => { 
       this.applicants = data;
+      console.log("Applicants retrieved");
+
+      console.log(this.applicants[0].firstName);
+
 
     });
-    console.log("Applicants retrieved");
+    
     this.studentInfo= false;
   }
 
@@ -35,7 +42,10 @@ export class ApplicantsComponent implements OnInit {
 
     //Change color of student name row
 
+  }
 
+  log() {
+    console.log("working");
   }
   
 

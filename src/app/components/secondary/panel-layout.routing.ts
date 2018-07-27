@@ -6,6 +6,7 @@ import { AddBursaryComponent } from './components/add-bursary/add-bursary.compon
 import { BursariesComponent } from './components/bursaries/bursaries.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ApplicantsComponent } from './components/applicants/applicants.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 export const PanelLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -13,5 +14,6 @@ export const PanelLayoutRoutes: Routes = [
     { path: 'bursary/add', component: AddBursaryComponent },
     { path: 'bursary/:id', component: BursaryDetailsComponent },
     { path: 'bursary/edit/:id', component: EditBursaryComponent },
-    { path: 'applicants', component: ApplicantsComponent }
+    { path: 'applicants', component: ApplicantsComponent },
+    { path: 'profile', component: ProfileComponent}
 ];
