@@ -9,6 +9,8 @@ import { AuthService } from './services/auth.service';
 export class AppComponent implements OnInit {
   title = 'app';
 
+  bursaryinfo: boolean;
+
   constructor(
     private authService: AuthService
   ) { }
@@ -21,6 +23,5 @@ export class AppComponent implements OnInit {
         }
       }
     });
-
   }
 }
