@@ -1,0 +1,28 @@
+.header {
+    padding: 20px;
+}
+
+.row {
+    padding: 10px;
+}
+
+#dropdownMenuButton {
+    width: 200px;
+}
+
+th {
+    width: 150px;
+}
+
+#th-1 {
+    width: 50px;
+}
+
+#th-3 {
+    width: 200px;
+}
+
+#btnrow {
+
+    text-align: center;
+}

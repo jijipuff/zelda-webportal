@@ -12,12 +12,9 @@ import { EditBursaryComponent } from './components/edit-bursary/edit-bursary.com
 import { AddBursaryComponent } from './components/add-bursary/add-bursary.component';
 import { BursariesComponent } from './components/bursaries/bursaries.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-<<<<<<< HEAD
 import { SearchComponent } from './components/search/search.component';
-=======
 import { ApplicantsComponent } from './components/applicants/applicants.component';
 import { ProfileComponent } from './components/profile/profile.component';
->>>>>>> add-applicationsubmitted-and-userprofiledemographics-model-2
 
 @NgModule({
   imports: [
@@ -35,12 +32,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     AddBursaryComponent,
     BursariesComponent,
     DashboardComponent,
-<<<<<<< HEAD
-    SearchComponent
-=======
+    SearchComponent,
     ApplicantsComponent,
     ProfileComponent
->>>>>>> add-applicationsubmitted-and-userprofiledemographics-model-2
   ]
 })
 export class PanelLayoutModule { }
