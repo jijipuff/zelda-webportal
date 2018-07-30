@@ -1,8 +1,8 @@
-<div class= "row">
+<div class="row">
   <div class="col-md-12 box">
     <h3 class="text-muted text-center mb-3 mt-2 txt">Applicants</h3>
   </div>
- 
+
 
   <div class="col-md-6 box">
     <div class="card">
@@ -14,18 +14,18 @@
               <th> Date Applied </th>
             </tr>
           </thead>
-          <tbody class= "applicants">
-            
-              <tr  *ngFor="let applicant of applicants" class="selected" (click)= "showInfo(applicant)" >
-                  <td> {{ applicant.firstName }} {{ applicant.lastName }} </td>
-                  <td>  {{ applicant.niceDate }} </td>
-                 <td>
-                   <button id="accept"> Accept </button>
-                   <button id="decline"> Decline </button>
-                   
-                 </td>
-                
-                </tr>
+          <tbody class="applicants">
+
+            <tr *ngFor="let applicant of applicants" class="selected" (click)="showInfo(applicant)">
+              <td> {{ applicant.firstName }} {{ applicant.lastName }} </td>
+              <td> {{ applicant.niceDate }} </td>
+              <td>
+                <button id="accept"> Accept </button>
+                <button id="decline"> Decline </button>
+
+              </td>
+
+            </tr>
           </tbody>
         </table>
       </div>
@@ -33,55 +33,60 @@
   </div>
 
   <div class="col-md-6 box">
-      <h4 class= "text-muted text-center mb-3 mt-2 txt"> Student Information</h4>
-    <div class="card" *ngIf= "studentInfo">
-          
-        <h4> {{selectedApplicant.firstName}} {{selectedApplicant.lastName }}  </h4>
-          
-        <div class= "module applicant">
+    <h4 class="text-muted text-center mb-3 mt-2 txt"> Student Information</h4>
+    <div class="card" *ngIf="studentInfo">
 
-            <div class= "grid grid-pad">
-              <div class="row"> 
-                <div class= "col-md-4"> Gender </div>
-                <div class= "col-md-4"> Race </div>
-                <div class= "col-md-4"> Nationality</div>
-              </div>
+      <h4> {{selectedApplicant.firstName}} {{selectedApplicant.lastName }} </h4>
 
-              <div class="row">
-                <div class= "col-sm-4">
-                  <div class= "info"> {{selectedApplicant.gender}} </div>
-                 </div>
-                 <div class= "col-sm-4">
-                   <div class= "info">{{selectedApplicant.race}} </div>
-                   </div>
-                 <div class= "col-sm-4"> 
-                   <div class= "info">{{selectedApplicant.nationality }} </div>
-                  </div>
-              </div>
+      <div class="module applicant">
 
-              <div class= "row">
-                <div class= "col-md"> Application Status</div>
-                </div>
-              <div class= "row">
-                <div class= "col-md-12"> Pending </div>
-              </div>
+        <div class="grid grid-pad">
+          <div class="row">
+            <div class="col-md-4"> Gender </div>
+            <div class="col-md-4"> Race </div>
+            <div class="col-md-4"> Nationality</div>
+          </div>
 
-              <div class= "row">
-                <div class= "col-md"> Income Bands </div>
-                </div>
-              <div class= "row">
-                <div class= "col-md-12"> less than 100,000R/Year </div>
-              </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="info"> {{selectedApplicant.gender}} </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="info">{{selectedApplicant.race}} </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="info">{{selectedApplicant.nationality }} </div>
+            </div>
+          </div>
 
-              <div class="row">
-                <div class= "col-md"> Marks </div>
-                </div>
-                <div class= "row">
-                <div class= "col-md-12"> Mathematics: 78% </div>
-              </div>
+          <div class="row">
+            <div class="col-md"> Application Status</div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"> Pending </div>
+          </div>
 
-       </div>
-      
+          <div class="row">
+            <div class="col-md"> Income Bands </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"> less than 100,000R/Year </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md"> Marks </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"> Mathematics: 78% </div>
+          </div>
+
+        </div>
+
+
+        <div class="moreInfo">
+          <button type="button" class="btn btn-outline-light">More Info</button>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>

@@ -7,13 +7,16 @@ import { BursariesComponent } from './components/bursaries/bursaries.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ApplicantsComponent } from './components/applicants/applicants.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SearchComponent } from './components/search/search.component';
 
 export const PanelLayoutRoutes: Routes = [
+    { path: '#', component: DashboardComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'bursaries', component: BursariesComponent },
     { path: 'bursary/add', component: AddBursaryComponent },
     { path: 'bursary/:id', component: BursaryDetailsComponent },
     { path: 'bursary/edit/:id', component: EditBursaryComponent },
     { path: 'applicants', component: ApplicantsComponent },
-    { path: 'profile', component: ProfileComponent}
+    { path: 'profile', component: ProfileComponent},
+    { path: 'search', component: SearchComponent}
 ];
