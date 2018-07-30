@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-12 box">
+    <h3 class="text-muted text-center mb-3 mt-2 txt">Messages</h3>
+  </div>
+</div>
+<div class="row">
+  <button type="button" class="btn btn-warning">Bulk Messaging Tool</button>
+  <button type="button" class="btn btn-secondary">New Direct Message</button>
+</div>
+
+<div class="row">
+  <div class="col-md-4 box">
+    <div class="card">
+      <div class="card-body">
+        <table class="table bg-light text-center table-responsive table-striped">
+          <thead>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </thead>
+          <tbody class="messages">
+            <tr>
+              <!-- figure out what names to pull - then change this to actually pull data from database // for now data is hardcoded as an example
+                <tr *ngFor="let - " class="selected" (click)="showInfo(-)">
+                <td> {{ applicant.name }} </td>
+              </tr>
+              -->
+              <tr>
+                <div>
+                  <td>
+                    <img src="..." class="rounded">Harry Potter</td>
+                </div>
+              </tr>
+              <tr>
+                <div>
+                  <td>
+                    <img src="..." class="rounded">Ron Weasely</td>
+                </div>
+              </tr>
+              <tr>
+                <div>
+                  <td>
+                    <img src="..." class="rounded">Hermione Granger</td>
+                </div>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8 box">
+    <div class="form-group">
+      <label>New Message</label>
+      <div class="form-control">
+        <ckeditor [config]="{uiColor: '#c0c0c0', extraPlugins: 'divarea'}">
+        </ckeditor>
+      </div>
+    </div>
+  </div>
+</div>
