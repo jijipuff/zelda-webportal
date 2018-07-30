@@ -30,7 +30,7 @@
     color: rgb(29, 28, 28);
   }
   
-.places tr:hover {
+.applicants tr:hover {
     color: #607D8B;
     background-color: #DDD;
     left: .1em;

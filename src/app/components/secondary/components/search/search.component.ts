@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Applicant } from '../../../../models/Applicant';
 
 @Component({
   selector: 'app-search',
@@ -14,6 +15,10 @@ export class SearchComponent implements OnInit {
   annualIncome: string;
   marks: string;
 
+  searchResults: Array<Applicant>= [];
+
+  showresults: boolean;
+
   constructor() { }
 
   ngOnInit() {
@@ -23,18 +28,15 @@ export class SearchComponent implements OnInit {
     this.applicationStatus= 'Select Status';
     this.annualIncome= 'Select Income';
     this.marks= 'Select Marks';
+    this.showresults= false;
   }
 
-
-  setGender(gender: string): void {
-    this.gender= gender;
-    console.log("gender is "+ this.gender);
+  showResults(): void {
+    this.showresults= true;
   }
 
-  showVars() : void {
-    console.log(this.gender);
-    console.log(this.matriculationYear);
-    console.log(this.race);
+  reset(): void {
+    this.showresults= false;
   }
 
 }

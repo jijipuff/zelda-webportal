@@ -7,7 +7,7 @@
 }
 
 #dropdownMenuButton {
-    width: 200px;
+    width: 160px;
 }
 
 th {
@@ -23,6 +23,15 @@ th {
 }
 
 #btnrow {
-
+    padding: 50px;
     text-align: center;
 }
+
+.students {
+    cursor: pointer;
+}
+
+.students tr.selected:hover {
+    background-color:#949393 !important;
+    color: rgb(29, 28, 28);
+  }
