@@ -1,21 +1,18 @@
 <div class="row mt-2">
   <div class="col-md-6">
-    <a routerLink="/bursaries" class="btn btn-link">
+    <a routerLink="/bursaries" class="btn-link">
       <i class="fa fa-arrow-circle-o-left"></i> Back to Bursaries
     </a>
   </div>
   <div class="col-md-6">
     <div class="btn-group pull-right">
-      <a routerLink="/bursary/edit/{{bursaryId}}" class="btn btn-dark">
+      <button type= "button" routerLink="/bursary/edit/{{bursaryId}}" class="btn btn-link" >
         Edit
-      </a>
-      <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+      </button>
+      <button class="btn btn-link" data-toggle="modal" data-target="#deleteModal">Delete</button>
     </div>
   </div>
 
-  <div *ngIf="bursary">
-    {{bursary.description}}
-  </div>
 </div>
 
 <div class="row">
@@ -100,8 +97,8 @@
           This change cannot be undone.
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Confirm</button>
+          <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-link">Confirm</button>
         </div>
       </div>
     </div>
