@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  selectedFile= null;
+
   constructor() { }
 
   companyName: string= 'Zelda';
@@ -16,6 +18,26 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
+  }
+
+  onFileSelected(event) {
+    console.log(event);
+    this.selectedFile= event.target.files[0];
+  }
+
+  onUpload() {
+    /** Figure out how to upload photo to FireStore */
+  }
+
+  onSubmit({value, valid}: {value: string, valid: boolean}) {
+    if (!valid) {
+      console.log('Form not valid');
+    } else {
+      console.log (value);  
+      this.description= value;
+      /** Upload description */
+     
+    }
   }
 
 }

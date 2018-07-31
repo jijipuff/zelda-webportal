@@ -15,6 +15,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let bursary of bursaries" >
+              <td> stuff </td>
               <td> {{ bursary.title }} </td>
               <td> {{ bursary.closingDate.toDate() | date:'medium' }} </td>
               <td> {{ bursary.bursaryUrl }} </td>

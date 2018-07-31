@@ -8,7 +8,7 @@ import { Bursary } from '../../../../models/Bursary';
   styleUrls: ['./bursaries.component.css']
 })
 export class BursariesComponent implements OnInit {
-  bursaries: Bursary[];
+  bursaries: Bursary[]= [];
 
   constructor(private bursaryService: BursaryService) { }
 
