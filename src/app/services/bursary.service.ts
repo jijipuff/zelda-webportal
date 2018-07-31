@@ -3,7 +3,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable, of } from 'rxjs';
 import { Bursary } from '../models/Bursary';
 import { map } from 'rxjs/operators';
-import { BURSARIES } from '../mock-bursaries';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +25,6 @@ export class BursaryService {
   }
 
   getBursaries(): Observable<Bursary[]> {
-    /** 
     this.bursaries = this.bursariesCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(action => {
         const bursaryData = action.payload.doc.data() as Bursary;
@@ -36,8 +34,7 @@ export class BursaryService {
     }));
     
     return this.bursaries;
-    */
-   return of(BURSARIES);
+
   }
 
   getBursary(id: string): Observable<Bursary> {

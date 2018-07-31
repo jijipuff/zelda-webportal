@@ -1,0 +1,29 @@
+.module {
+    padding-top: 10px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: rgb(71, 69, 69);
+    max-height: 1000px;
+    min-height: 600px;
+    min-width: 50px;
+    background-color: #949393;
+    border-radius: 2px;
+  }
+
+.info {
+    width: 150px;
+    background-color: white;
+    padding: 10px;
+}
+
+.row {
+    padding-top: 10px;
+   
+}
+
+
+.col-md-12 {
+    background-color: white;
+    padding: 10px;
+}

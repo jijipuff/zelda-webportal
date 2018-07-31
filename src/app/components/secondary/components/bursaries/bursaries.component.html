@@ -2,35 +2,36 @@
   <div class="col-md-12 box">
     <h3 class="text-muted text-center mb-3 mt-2 txt">Manage Bursaries</h3>
   </div>
-  <div class="col-md-8 box">
+  <div class="col-md-12 box">
     <div class="card">
       <div class="card-body">
+        <div class = "row">
+          <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Filter by
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </div>
         <table class="table bg-light text-center table-responsive table-striped">
           <thead>
-            <tr>
-              <div class="dropdown">
-                <div class="text-muted">Filter by</div>
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false">
-                  Title
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </tr>
             <tr class="text-muted">
               <th>Title</th>
               <th>Closing Date</th>
               <th>Link</th>
+              <th> Details</th>
+              <th> Options</th>
             </tr>
           </thead>
           <tbody class= "bursaries">
-            <tr *ngFor="let bursary of bursaries" class="selected" (click)="showInfo(bursary)">
+            <tr *ngFor="let bursary of bursaries"  >
               <td> {{ bursary.title }} </td>
-              <td> {{ bursary.closingDate | date:'medium' }} </td>
+              <td> {{ bursary.closingDate.toDate() | date: 'dd/MM/yyyy' }} </td>
               <td> {{ bursary.bursaryUrl }} </td>
               <td>
                 <a routerLink="/bursary/{{bursary.bursaryId}}" class="btn btn-secondary btn-sm">
@@ -48,71 +49,8 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4 box">
-    <h4 class="text-muted mb-3 mt-2 txt">Bursary Preview</h4>
-    <div class="card" *ngIf="bursaryinfo">
-      <h3 class="mb-3 mt-2 txt">{{ selectedBursary.title }}</h3>
-    
-    <div class="module bursary">
-
-      <div class="row">
-        <h5>Degrees</h5>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div>Degree Display</div>
-        </div>
-      </div>
-
-      <div class="row">
-        <h5>Institutions</h5>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div>Institutions Display</div>
-        </div>
-      </div>
-
-      <div class="row">
-        <h5>Criteria</h5>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div>Criteria Display</div>
-        </div>
-      </div>
-
-      <div class="row">
-        <h5>Dates</h5>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div>Dates Display</div>
-        </div>
-      </div>
-
-      <div class="row">
-        <h5>Positions Available</h5>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div>Positions Available Display</div>
-        </div>
-      </div>
-
-      <div class="row">
-        <h5>Requirements</h5>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div>Requirements Display</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-  <div class="col-md-3 box">
+  
+  <div class="col-md-3 ">
     <div class="card border-success">
       <div class="card-body">
         <a routerLink="/bursary/add" class="btn btn-success btn-block text-center">

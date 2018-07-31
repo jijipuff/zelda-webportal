@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BursaryService } from '../../../../services/bursary.service';
 import { Bursary } from '../../../../models/Bursary';
-import { BURSARIES } from '../../../../mock-bursaries';
-
 
 @Component({
   selector: 'app-bursaries',
@@ -23,6 +21,8 @@ export class BursariesComponent implements OnInit {
       this.bursaries = data;
     });
     this.bursaryinfo= false;
+
+    
   }
 
   showInfo(bursary: Bursary)  {
