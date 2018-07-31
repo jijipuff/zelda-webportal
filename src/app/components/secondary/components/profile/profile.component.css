@@ -32,15 +32,16 @@
 }
 
 
-#save {
-    color: green;
-    cursor: pointer;
-    padding: 10px;
+#btnrow {
+    padding: 50px;
+    text-align: center;
 }
 
-#discard {
-    color: red;
-    cursor: pointer;
-    padding: 10px;
+input {
+    width: 500px;
+}
+
+form {
+    width: 500px;
 }
 

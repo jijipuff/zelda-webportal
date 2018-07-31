@@ -42,7 +42,7 @@ import { ApplicantService } from './services/applicants.service';
     BrowserModule,
     FormsModule,
     FlashMessagesModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebase, 'zeldav1-dev'),
+    AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireAuthModule
