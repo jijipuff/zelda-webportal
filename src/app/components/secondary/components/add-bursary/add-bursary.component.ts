@@ -47,7 +47,7 @@ export class AddBursaryComponent implements OnInit {
   ngOnInit() {
     this.fieldsOptions = [
       { 'id': 1, 'itemName': 'Science' },
-      { 'id': 2, 'itemName': 'Enginnering' },
+      { 'id': 2, 'itemName': 'Engineering' },
       { 'id': 3, 'itemName': 'Mathematics' }
     ];
 

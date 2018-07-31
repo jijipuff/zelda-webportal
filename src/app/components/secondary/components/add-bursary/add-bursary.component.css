@@ -1,7 +1,7 @@
 label {
     color: #1D3C32;
     font-weight: bold;
-    background-color: #c0c0c0;
+    /** background-color: #c0c0c0; */
     border-radius: 5px;
     padding-right: 4px;
     padding-left: 4px;
@@ -23,4 +23,22 @@ label {
 }
 .custom-class-example .pure-checkbox input[type="checkbox"]:checked + label[_ngcontent-c1]:before {
     background: #38d574 !important;
+}
+
+.btn {
+    background-color: #03837c;
+    color: white;
+
+}
+
+a {
+    color: #03837c;
+}
+
+a:link {
+    color: #03837c;  
+}
+
+a:hover {
+    color: #024b47;
 }

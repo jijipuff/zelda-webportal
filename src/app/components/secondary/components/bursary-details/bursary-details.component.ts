@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { BursaryService } from '../../../../services/bursary.service';
 import { Bursary } from '../../../../models/Bursary';
 
+
 @Component({
   selector: 'app-bursary-details',
   templateUrl: './bursary-details.component.html',
@@ -29,5 +30,11 @@ export class BursaryDetailsComponent implements OnInit {
       }
     });
   }
+
+  onDeleteClick(event) {
+  
+  }
+
+
 
 }
