@@ -8,8 +8,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ApplicantsComponent } from './components/applicants/applicants.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MessagingComponent } from './components/messaging/messaging.component';
+import { SearchComponent } from './components/search/search.component';
 
 export const PanelLayoutRoutes: Routes = [
+    { path: '#', component: DashboardComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'bursaries', component: BursariesComponent },
     { path: 'bursary/add', component: AddBursaryComponent },
@@ -19,4 +21,5 @@ export const PanelLayoutRoutes: Routes = [
     { path: 'profile', component: ProfileComponent},
     { path: 'applicants', component: ApplicantsComponent },
     { path: 'messaging', component: MessagingComponent },
+    { path: 'search', component: SearchComponent}
 ];

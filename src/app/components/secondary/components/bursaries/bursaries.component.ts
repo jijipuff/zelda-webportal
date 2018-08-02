@@ -10,7 +10,7 @@ import { BURSARIES } from '../../../../mock-bursaries';
   styleUrls: ['./bursaries.component.css']
 })
 export class BursariesComponent implements OnInit {
-  bursaries: Bursary[];
+  bursaries: Bursary[]= [];
 
   bursaryinfo: boolean;
 

@@ -15,7 +15,7 @@ p {
 }
 
 .box {
-    border: 1px red dotted;
+    border: 1px rgb(3, 159, 170) dotted;
 }
 
 .auth-wrapper {

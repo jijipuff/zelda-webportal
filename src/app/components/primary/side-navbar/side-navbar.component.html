@@ -1,8 +1,9 @@
 <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
-    <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 bottom-border mb-4">Nedbank Portal</a>
+    <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 bottom-border mb-4">Company Portal</a>
     <div class="bottom-border pb-3">
         <img src="assets/img/admin.jpeg" width="50" class="rounded-circle mr-3">
-        <a routerLink="/profile" class="text-white" [routerLinkActive]="['current']" [routerLinkActiveOptions]="{exact: true}"> Tiro Modibedi </a>
+        <a routerLink="/profile" class="text-white" [routerLinkActive]="['current']" [routerLinkActiveOptions]="{exact: true}"> Tiro Modibedi
+         </a>
     </div>
     <ul class="navbar-nav flex-column mt-4">
         <li class="nav-item">
@@ -17,8 +18,8 @@
             </a>
         </li>
 
-        <li class="nav-item">
-            <a routerLink="/applicants" class="nav-link text-white p-3 mb-2 sidebar-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+        <li class="nav-item side">
+            <a routerLink="/applicants" class="nav-link text-white p-3 mb-2 sidebar-link" [routerLinkActive]="['current']" [routerLinkActiveOptions]="{exact: true}">
                 <i class="fa fa-user text-light fa-lg mr-3"></i>Applicants
             </a>
         </li>
@@ -27,6 +28,10 @@
             <a routerLink="/messaging" class="nav-link text-white p-3 mb-2 sidebar-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
                 <i class="fa fa-comment text-light fa-lg mr-3"></i>Messaging
             </a>
+        <li class= "nav-item">
+            <a routerLink= "/search" class= "nav-link text-white p-3 mb-2 sidebar-link" [routerLinkActive]="['current']" [routerLinkActiveOptions]="{exact: true}">
+                <i class="fa fa-search text-light fa-lg mr-3"></i>Search 
+        </a>
         </li>
 
     </ul>

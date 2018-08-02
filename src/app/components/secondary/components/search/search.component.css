@@ -1,0 +1,37 @@
+.header {
+    padding: 20px;
+}
+
+.row {
+    padding: 10px;
+}
+
+#dropdownMenuButton {
+    width: 160px;
+}
+
+th {
+    width: 150px;
+}
+
+#th-1 {
+    width: 50px;
+}
+
+#th-3 {
+    width: 200px;
+}
+
+#btnrow {
+    padding: 50px;
+    text-align: center;
+}
+
+.students {
+    cursor: pointer;
+}
+
+.students tr.selected:hover {
+    background-color:#949393 !important;
+    color: rgb(29, 28, 28);
+  }

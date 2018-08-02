@@ -20,13 +20,13 @@
 }
 
 .current {
-    background-color: #f44336;
+    background-color: #03837c;
     border-radius: 5px;
     box-shadow: 2px 5px 10px #111;
 }
 
 .current:hover {
-    background-color: #f66436;
+    background-color: #06b9b0;
     border-radius: 5px;
     box-shadow: 2px 5px 20px #111;
     transform: translateX(-1px);

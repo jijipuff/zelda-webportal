@@ -37,7 +37,8 @@ import { MessagingComponent } from './components/messaging/messaging.component';
     ApplicantsComponent,
     ProfileComponent,
     ApplicantsComponent,
-    MessagingComponent
+    MessagingComponent,
+    ProfileComponent
   ]
 })
 export class PanelLayoutModule { }

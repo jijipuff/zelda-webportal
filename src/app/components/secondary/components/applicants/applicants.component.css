@@ -1,11 +1,24 @@
 #accept {
     color: green;
     cursor: pointer;
+    width: 90px;
 }
 
 #decline {
     color: red;
     cursor: pointer;
+    width: 90px;
+}
+
+.btn {
+    padding: 20px;
+}
+
+.moreInfo {
+    padding-top: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .applicants {
@@ -17,7 +30,7 @@
     color: rgb(29, 28, 28);
   }
   
-.places tr:hover {
+.applicants tr:hover {
     color: #607D8B;
     background-color: #DDD;
     left: .1em;
