@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Bursary } from '../../../../models/Bursary';
+import { Router, ActivatedRoute } from '@angular/router';
+import { BursaryService } from '../../../../services/bursary.service';
 
 @Component({
   selector: 'app-edit-bursary',
@@ -7,9 +10,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditBursaryComponent implements OnInit {
 
-  constructor() { }
+  bursaryId: string;
+  bursary: Bursary;
+
+  applicableFieldsOptions= [];
+  dropdownSettings= {};
+
+  constructor(
+    private bursaryService: BursaryService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.bursaryId =  this.route.snapshot.params['id'];
+    this.bursaryService.getBursary(this.bursaryId).subscribe(data => {
+      if (data != null) {
+        console.log(data);
+        this.bursary = data;
+      } else {
+        console.log('Error loading bursary');
+      }
+    });
+
+    this.applicableFieldsOptions = [
+      { 'id': 1, 'itemName': 'Systems Engineering' },
+      { 'id': 2, 'itemName': 'Software Engineering' },
+      { 'id': 3, 'itemName': 'Data Science' }
+    ];
+
+    this.dropdownSettings = {
+      singleSelection: false,
+      text: 'Select',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      enableSearchFilter: true,
+      classes: 'custom-class-example'
+    };
   }
 
 }

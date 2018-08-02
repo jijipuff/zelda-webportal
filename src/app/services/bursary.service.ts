@@ -61,5 +61,12 @@ export class BursaryService {
     });
   }
 
+  deleteBursary(id: string) {
+    console.log(id);
+    this.bursaryDocument= this.afs.doc(`Bursaries/${id}`)
+    this.bursaryDocument.delete();
+  }
+
+
 }
 

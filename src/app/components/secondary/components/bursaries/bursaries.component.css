@@ -25,3 +25,13 @@
   th {
       width: 170px;
   }
+
+  select {
+      background-color: #6f6f70;
+      color: white;  
+  }
+
+  .btn-secondary {
+      background-color: #6f6f70;
+  }
+  

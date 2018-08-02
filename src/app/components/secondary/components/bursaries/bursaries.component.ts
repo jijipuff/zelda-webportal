@@ -14,6 +14,9 @@ export class BursariesComponent implements OnInit {
 
   selectedBursary: Bursary;
 
+  filter: boolean;
+  filterby: string;
+
   constructor(private bursaryService: BursaryService) { }
 
   ngOnInit() {
@@ -21,9 +24,10 @@ export class BursariesComponent implements OnInit {
       this.bursaries = data;
     });
     this.bursaryinfo= false;
-
-    
+    this.filter= true;
+    this.filterby= 'Filter By';
   }
+
 
   showInfo(bursary: Bursary)  {
 
@@ -31,4 +35,13 @@ export class BursariesComponent implements OnInit {
     this.selectedBursary= bursary;
 
   }
+
+  filterBy(): void {
+
+    //this.filterby= filter;
+1
+    console.log(this.filterby);
+  }
+
+
 }

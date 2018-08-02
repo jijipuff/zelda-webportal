@@ -15,3 +15,9 @@ a:link {
 a:hover {
     color: #024b47;
 }
+
+#content {
+
+    justify-content: center;
+    display: flex;
+}

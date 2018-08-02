@@ -27,9 +27,6 @@ export class ApplicantsComponent implements OnInit {
       this.applicants = data;
       console.log("Applicants retrieved");
 
-      console.log(this.applicants[0].firstName);
-
-
     });
     
     this.studentInfo= false;
@@ -42,10 +39,6 @@ export class ApplicantsComponent implements OnInit {
 
     //Change color of student name row
 
-  }
-
-  log() {
-    console.log("working");
   }
   
 

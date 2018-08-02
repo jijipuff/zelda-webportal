@@ -3,7 +3,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable, of } from 'rxjs';
 import { Applicant } from '../models/Applicant';
 import { map } from 'rxjs/operators';
-import { APPLICANTS } from '../mock-applicants';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +25,6 @@ export class ApplicantService {
   }
 
   getApplicants(): Observable<Applicant[]> {
-    /**
     this.applicants = this.applicantsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(action => {
         const ApplicantData = action.payload.doc.data() as Applicant;
@@ -34,9 +32,7 @@ export class ApplicantService {
         return ApplicantData;
       });
     }));
-    return this.applicants;
-    */
-   return of(APPLICANTS);
+    return this.applicants; 
   }
 
   getApplicant(id: string): Observable<Applicant> {
