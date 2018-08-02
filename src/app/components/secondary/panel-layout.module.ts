@@ -16,6 +16,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ApplicantsComponent } from './components/applicants/applicants.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DeleteBursaryComponent } from './components/delete-bursary/delete-bursary.component';
+import { MessagingComponent } from './components/messaging/messaging.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { DeleteBursaryComponent } from './components/delete-bursary/delete-bursa
     SearchComponent,
     ApplicantsComponent,
     ProfileComponent,
-    DeleteBursaryComponent
+    DeleteBursaryComponent,
+    MessagingComponent
   ]
 })
 export class PanelLayoutModule { }

@@ -7,6 +7,7 @@ import { BursariesComponent } from './components/bursaries/bursaries.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ApplicantsComponent } from './components/applicants/applicants.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { MessagingComponent } from './components/messaging/messaging.component';
 import { SearchComponent } from './components/search/search.component';
 import { DeleteBursaryComponent } from './components/delete-bursary/delete-bursary.component';
 
@@ -20,5 +21,7 @@ export const PanelLayoutRoutes: Routes = [
     { path: 'bursary/edit/:id', component: EditBursaryComponent },
     { path: 'applicants', component: ApplicantsComponent },
     { path: 'profile', component: ProfileComponent},
+    { path: 'applicants', component: ApplicantsComponent },
+    { path: 'messaging', component: MessagingComponent },
     { path: 'search', component: SearchComponent}
 ];
