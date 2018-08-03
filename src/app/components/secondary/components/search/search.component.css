@@ -14,17 +14,8 @@ th {
     width: 150px;
 }
 
-#th-1 {
-    width: 50px;
-}
-
-#th-3 {
-    width: 200px;
-}
-
-#btnrow {
-    padding: 50px;
-    text-align: center;
+button {
+    width: 150px;
 }
 
 .students {
