@@ -8,69 +8,90 @@
     <h3 class="text-muted text-center mb-3 mt-2 txt"> Filter By </h3>
 
 
-    <div class="row">
-      <div class= "col-md-6">
-          <button type="button" class="btn btn-outline-success" (click)="showGenders()"> Gender </button>
+    <div class="row text-muted">
+      <div class="col-md-5"> Gender </div>
+      <div class="col-md-6 btn-group">
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"> Select Gender
+          <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <a (click)="filterByGender('Female')">Female</a>
+          </li>
+          <li>
+            <a (click)="filterByGender('Male')">Male</a>
+          </li>
+          <li>
+            <a (click)="filterByGender(null)" *ngIf="this.genderFilter$.getValue()">
+              <em>clear filter</em>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 
-    <div *ngIf="genders" class= "col-md-6">
-      <div class="row">
-        <button (click)="filterByGender('Female')">Female</button>
-      </div>
-      <div class="row">
-        <button (click)="filterByGender('Male')">Male</button>
-      </div>
+    <div class="row text-muted">
+      <div class="col-md-5"> Race </div>
+      <div class="col-md-6 btn-group">
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"> Select Race
+          <span class="caret"></span>
+        </button>
 
-      <button (click)="filterByGender(null)" *ngIf="this.genderFilter$.getValue()">
-        <em>clear filter</em>
-      </button>
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <a (click)="filterByRace('White')">White</a>
+          </li>
+          <li>
+            <a (click)="filterByRace('Black')">Black</a>
+          </li>
+          <li>
+            <a (click)="filterByRace('Asian')">Asian</a>
+          </li>
+          <li>
+            <a (click)="filterByRace('Hispanic')">Hispanic</a>
+          </li>
+          <li>
+            <a (click)="filterByRace(null)" *ngIf="this.raceFilter$.getValue()">
+              <em>clear filter</em>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class= "row">
-      <div class= "col-md-6">
-          <button type="button" class="btn btn-outline-success" (click)="showRaces()"> Race</button>
+
+    <div class="row text-muted">
+      <div class="col-md-5"> Nationality </div>
+      <div class="col-md-6 btn-group">
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Select Nationality
+          <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <a (click)="filterByNationality('US')"> US</a>
+          </li>
+          <li>
+            <a (click)="filterByNationality('South African')"> South African</a>
+          </li>
+          <li>
+            <a (click)="filterByNationality('Mozambique')">Mozambique</a>
+          </li>
+          <li>
+            <a (click)="filterByNationality(null)" *ngIf="this.nationalityFilter$.getValue()">
+              <em>clear filter</em>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 
-    <div *ngIf="races" class="col-md-6">
-      <div class="row">
-        <button (click)="filterByRace('White')">White </button>
-      </div>
-      <div class="row">
-        <button (click)="filterByRace('Black')">Black</button>
-      </div>
-      <div class="row">
-        <button (click)="filterByRace('Asian')">Asian</button>
-      </div>
-      <div class="row">
-        <button (click)="filterByRace('Asian')">Hispanic</button>
-      </div>
-      <button (click)="filterByRace(null)" *ngIf="this.raceFilter$.getValue()">
-        <em>clear filter</em>
-      </button>
 
-    </div>
-
-    <div class="row">
-      <div class="col-md-6">
-        <button type="button" class="btn btn-outline-success" (click)="showNationalities()"> Nationality</button>
-      </div>
-    </div>
-    <div *ngIf="nationalities" class= "col-md-6">
-      <div class="row">
-        <button (click)="filterByNationality('US')"> US </button>
-      </div>
-      <div class="row">
-        <button (click)="filterByNationality('South African')"> South African </button>
-      </div>
-
-      <button (click)="filterByNationality(null)" *ngIf="this.nationalityFilter$.getValue()">
-        <em>clear filter</em>
-      </button>
-    </div>
 
   </div>
+
+
 
   <div class="col-md-7 box">
     <h3 class="text-muted text-center mb-3 mt-2 txt"> Search Results </h3>
