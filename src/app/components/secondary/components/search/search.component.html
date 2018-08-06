@@ -5,15 +5,113 @@
   </div>
 
   <div class="col-md-5 box">
-    <h3 class="text-muted text-center mb-3 mt-2 txt"> Search </h3>
+    <h3 class="text-muted text-center mb-3 mt-2 txt"> Filter By </h3>
 
+
+    <div class="row">
+      <div class= "col-md-6">
+          <button type="button" class="btn btn-outline-success" (click)="showGenders()"> Gender </button>
+      </div>
+    </div>
+
+    <div *ngIf="genders" class= "col-md-6">
+      <div class="row">
+        <button (click)="filterByGender('Female')">Female</button>
+      </div>
+      <div class="row">
+        <button (click)="filterByGender('Male')">Male</button>
+      </div>
+
+      <button (click)="filterByGender(null)" *ngIf="this.genderFilter$.getValue()">
+        <em>clear filter</em>
+      </button>
+    </div>
+
+    <div class= "row">
+      <div class= "col-md-6">
+          <button type="button" class="btn btn-outline-success" (click)="showRaces()"> Race</button>
+      </div>
+    </div>
+
+    <div *ngIf="races" class="col-md-6">
+      <div class="row">
+        <button (click)="filterByRace('White')">White </button>
+      </div>
+      <div class="row">
+        <button (click)="filterByRace('Black')">Black</button>
+      </div>
+      <div class="row">
+        <button (click)="filterByRace('Asian')">Asian</button>
+      </div>
+      <div class="row">
+        <button (click)="filterByRace('Asian')">Hispanic</button>
+      </div>
+      <button (click)="filterByRace(null)" *ngIf="this.raceFilter$.getValue()">
+        <em>clear filter</em>
+      </button>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <button type="button" class="btn btn-outline-success" (click)="showNationalities()"> Nationality</button>
+      </div>
+    </div>
+    <div *ngIf="nationalities" class= "col-md-6">
+      <div class="row">
+        <button (click)="filterByNationality('US')"> US </button>
+      </div>
+      <div class="row">
+        <button (click)="filterByNationality('South African')"> South African </button>
+      </div>
+
+      <button (click)="filterByNationality(null)" *ngIf="this.nationalityFilter$.getValue()">
+        <em>clear filter</em>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="col-md-7 box">
+    <h3 class="text-muted text-center mb-3 mt-2 txt"> Search Results </h3>
+
+    <table class="table bg-light text-center table-responsive table-striped" *ngIf="userDemographics$ | async; let userDemographics; else loading">
+      <thead>
+        <tr class="text-muted">
+          <th> Race </th>
+          <th> Gender </th>
+          <th> Nationality </th>
+        </tr>
+      </thead>
+      <tbody class="applicants">
+
+        <tr *ngFor="let userDemographic of userDemographics" class="selected">
+          <td> {{ userDemographic.race }} </td>
+          <td> {{ userDemographic.gender }} </td>
+          <td> {{ userDemographic.nationality}} </td>
+        </tr>
+
+        <ng-template #loading>Loading&hellip;</ng-template>
+
+      </tbody>
+
+      <div class="p-2" *ngIf="userDemographics.length === 0"> No results, try clearing filters </div>
+    </table>
+
+  </div>
+
+
+</div>
+
+
+<!--
     <div class="row text-muted">
       <div class="col-md-6"> Gender </div>
       <div class="col-md-4 dropdown">
-        <select class="custom-select" id="dropdownMenuButton" [(ngModel)]="gender" >
+        <select class="custom-select" id="dropdownMenuButton" [(ngModel)]="gender">
           <option selected> {{ gender }} </option>
-          <option value="female">Female</option>
-          <option value="male">Male</option>
+          <option value="female"> Female</option>
+          <option value="male"> Male</option>
           <option value="other">Other</option>
         </select>
       </div>
@@ -47,97 +145,4 @@
       </div>
     </div>
 
-    <div class="row text-muted">
-      <div class="col-md-6"> Application Status</div>
-      <div class="col-md-4 dropdown">
-        <select class="custom-select" id="dropdownMenuButton" [(ngModel)]="applicationStatus">
-          <option selected> {{ applicationStatus }} </option>
-          <option value="accepted">Accepted</option>
-          <option value="pending">Pending</option>
-          <option value="declined">Declined</option>
-        </select>
-      </div>
-    </div>
-
-
-    <div class="row text-muted">
-      <div class="col-md-6"> Annual Family Income </div>
-      <div class="col-md-4 dropdown">
-        <select class="custom-select" id="dropdownMenuButton" [(ngModel)]="annualIncome">
-          <option selected> {{ annualIncome }} </option>
-          <option value="&lt;100,000">&lt;100,000R</option>
-          <option value="100,000-200,000">100,000-200,000R</option>
-          <option value="&gt;200,0000">&gt;200,000R</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="row text-muted">
-      <div class="col-md-6"> Marks </div>
-      <div class="col-md-4 dropdown">
-        <select class="custom-select" id="dropdownMenuButton">
-          <option selected> {{ marks }} </option>
-          <option value="great">great</option>
-          <option value="meh">meh</option>
-          <option value="awful">awful</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="row" id= "btnrow">
-      <div class="col">
-        <button type="button" class="btn btn-outline-danger" (click)="reset()"> Reset </button>
-      </div>
-      <div class="col">
-        <button type="button" class="btn btn-outline-success " (click)="showResults()"> Apply
-            <i class="fa fa-chevron-right" aria-hidden="true"></i> </button>
-      </div>
-    </div>
-
-    </div>
-
-
-    <div class="col-md-7 box">
-      <h3 class="text-muted text-center mb-3 mt-2 txt"> Search Results </h3>
-
-      <table class="table bg-light text-center table-responsive table-striped" *ngIf= "showresults">
-        <thead>
-          <tr class="text-muted">
-            <th id="th-1"> # </th>
-            <th> Gender </th>
-            <th id="th-3"> Matriculation Year </th>
-            <th> Race </th>
-          </tr>
-        </thead>
-        <tbody class="applicants">
-
-          <tr *ngFor="let student of searchResults" class="selected">
-
-          </tr>
-
-          <tr class="selected">
-            <td> 1 </td>
-            <td> F </td>
-            <td> 2017 </td>
-            <td> Pacific Islander</td>
-          </tr>
-
-          <tr class="selected">
-            <td> 2 </td>
-            <td> M </td>
-            <td> 2016 </td>
-            <td> White </td>
-          </tr>
-
-
-        </tbody>
-      </table>
-    </div>
-
-
-
-
-
-
-
-  </div>
+  -->
