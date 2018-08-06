@@ -4,6 +4,18 @@
 
 }
 
+.btn-link {
+    color: #03837c;
+    cursor: pointer;
+}
+
+.btn-link:hover {
+    color: #024b47;
+}
+
+#deleteBtn {
+    background-color: white;
+}
 a {
     color: #03837c;
 }
@@ -17,7 +29,6 @@ a:hover {
 }
 
 #content {
-
     justify-content: center;
     display: flex;
 }

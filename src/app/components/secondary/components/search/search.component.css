@@ -3,7 +3,7 @@
 }
 
 .row {
-    padding: 10px;
+    padding-top: 15px;
 }
 
 #dropdownMenuButton {
@@ -26,3 +26,5 @@ th {
     background-color:#949393 !important;
     color: rgb(29, 28, 28);
   }
+
+ 

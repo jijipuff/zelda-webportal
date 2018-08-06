@@ -5,40 +5,45 @@
   </div>
 
   <div class="col-md-5 box">
+
     <h3 class="text-muted text-center mb-3 mt-2 txt"> Filter By </h3>
-
-
     <div class="row text-muted">
-      <div class="col-md-5"> Gender </div>
-      <div class="col-md-6 btn-group">
+      <div class="col-md-1"></div>
+      <div class="col-md-4"> Gender </div>
+      <div class="col-md-7 btn-group">
         <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"> Select Gender
           <span class="caret"></span>
         </button>
 
-        <ul class="dropdown-menu" role="menu">
+        <ul class="dropdown-menu" role="menu" >
           <li>
             <a (click)="filterByGender('Female')">Female</a>
           </li>
           <li>
             <a (click)="filterByGender('Male')">Male</a>
           </li>
-          <li>
-            <a (click)="filterByGender(null)" *ngIf="this.genderFilter$.getValue()">
-              <em>clear filter</em>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
 
+    <div class="row justify-content-end">
+      <div class="col-md-7">
+        <button (click)="filterByGender(null)" *ngIf="this.genderFilter$.getValue()">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          <em> {{gender}}</em>
+        </button>
+      </div>
+    </div>
+
     <div class="row text-muted">
-      <div class="col-md-5"> Race </div>
-      <div class="col-md-6 btn-group">
+      <div class="col-md-1"></div>
+      <div class="col-md-4"> Race </div>
+      <div class="col-md-7 btn-group">
         <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"> Select Race
           <span class="caret"></span>
         </button>
 
-        <ul class="dropdown-menu" role="menu">
+        <ul class="dropdown-menu" role="menu" >
           <li>
             <a (click)="filterByRace('White')">White</a>
           </li>
@@ -51,26 +56,31 @@
           <li>
             <a (click)="filterByRace('Hispanic')">Hispanic</a>
           </li>
-          <li>
-            <a (click)="filterByRace(null)" *ngIf="this.raceFilter$.getValue()">
-              <em>clear filter</em>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
 
+    <div class="row justify-content-end">
+      <div class= "col-md-7">
+      <button (click)="filterByRace(null)" *ngIf="this.raceFilter$.getValue()">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        <em> {{ race }} </em>
+      </button>
+    </div>
+    </div>
+
 
     <div class="row text-muted">
-      <div class="col-md-5"> Nationality </div>
-      <div class="col-md-6 btn-group">
+      <div class= "col-md-1"></div>
+      <div class="col-md-4"> Nationality </div>
+      <div class="col-md-7 btn-group">
         <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Select Nationality
           <span class="caret"></span>
         </button>
 
         <ul class="dropdown-menu" role="menu">
           <li>
-            <a (click)="filterByNationality('US')"> US</a>
+            <a (click)="filterByNationality('US')">US </a>
           </li>
           <li>
             <a (click)="filterByNationality('South African')"> South African</a>
@@ -78,13 +88,17 @@
           <li>
             <a (click)="filterByNationality('Mozambique')">Mozambique</a>
           </li>
-          <li>
-            <a (click)="filterByNationality(null)" *ngIf="this.nationalityFilter$.getValue()">
-              <em>clear filter</em>
-            </a>
-          </li>
         </ul>
       </div>
+    </div>
+
+    <div class="row justify-content-end">
+      <div class= "col-md-7">
+      <button type="button" (click)="filterByNationality(null)" *ngIf="this.nationalityFilter$.getValue()">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        <em> {{ nationality }}</em>
+      </button>
+    </div>
     </div>
 
 
@@ -104,12 +118,12 @@
           <th> Nationality </th>
         </tr>
       </thead>
-      <tbody class="applicants">
+      <tbody class="students">
 
-        <tr *ngFor="let userDemographic of userDemographics" class="selected">
-          <td> {{ userDemographic.race }} </td>
-          <td> {{ userDemographic.gender }} </td>
-          <td> {{ userDemographic.nationality}} </td>
+        <tr *ngFor="let user of userDemographics" class="selected">
+          <td> {{ user.race }} </td>
+          <td> {{ user.gender }} </td>
+          <td> {{ user.nationality}} </td>
         </tr>
 
         <ng-template #loading>Loading&hellip;</ng-template>
@@ -121,49 +135,4 @@
 
   </div>
 
-
 </div>
-
-
-<!--
-    <div class="row text-muted">
-      <div class="col-md-6"> Gender </div>
-      <div class="col-md-4 dropdown">
-        <select class="custom-select" id="dropdownMenuButton" [(ngModel)]="gender">
-          <option selected> {{ gender }} </option>
-          <option value="female"> Female</option>
-          <option value="male"> Male</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="row text-muted">
-      <div class="col-md-6"> Matriculation Year </div>
-      <div class="col-md-4 dropdown">
-        <select class="custom-select" id="dropdownMenuButton" [(ngModel)]="matriculationYear">
-          <option selected> {{ matriculationYear }} </option>
-          <option value="2012">2012</option>
-          <option value="2013">2013</option>
-          <option value="2014">2014</option>
-          <option value="2015">2015</option>
-          <option value="2016">2016</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="row text-muted">
-      <div class="col-md-6"> Race </div>
-      <div class="col-md-4 dropdown">
-        <select class="custom-select" id="dropdownMenuButton" [(ngModel)]="race">
-          <option selected> {{ race }} </option>
-          <option value="asian">Asian</option>
-          <option value="hispanic">Hispanic/Latino</option>
-          <option value="pacific islander">Pacific Islander</option>
-          <option value="white">White</option>
-          <option value="black">Black</option>
-        </select>
-      </div>
-    </div>
-
-  -->

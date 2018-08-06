@@ -8,13 +8,13 @@
 
           <div class="row text-muted">
               <div class="col-md-3 dropdown">
-                <select class="custom-select btn btn-secondary" id="dropdownMenuButton" [(ngModel)]="filterby" >
+                <select class="custom-select btn btn-secondary" id="dropdownMenuButton" [(ngModel)]="filterby" (change)= "filter($event)" >
                   <option selected> Filter By</option>
                   <option value="title">Bursary Title</option>
                   <option value="date">Closing Date</option>
                 </select>
               </div>
-              <button *ngIf= "filter" class="btn btn-outline-dark" (click)="filterBy()"> apply </button>
+              
           </div>
 
         <table class="table bg-light text-center table-responsive table-striped">
@@ -23,20 +23,15 @@
               <th>Title</th>
               <th>Closing Date</th>
               <th>Link</th>
-              <th> Details</th>
               <th> Options</th>
             </tr>
           </thead>
           <tbody class= "bursaries">
-            <tr *ngFor="let bursary of bursaries"  >
+            <tr *ngFor="let bursary of bursaries" routerLink="/bursary/edit/{{bursary.bursaryId}}" >
               <td> {{ bursary.title }} </td>
               <td> {{ bursary.closingDate.toDate() | date: 'dd/MM/yyyy' }} </td>
               <td> {{ bursary.bursaryUrl }} </td>
-              <td>
-                <a routerLink="/bursary/{{bursary.bursaryId}}" class="btn btn-secondary btn-sm">
-                  <i class="fa fa-arrow-circle-o-right mr-1"></i>More Details
-                </a>
-              </td>
+              
               <td>
                 <button class="btn btn-success btn-sm button">Close Applications</button>
                 <button class="btn-danger btn-sm button" data-toggle="modal" data-target="#cancelModal"
