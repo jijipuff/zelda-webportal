@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientAdminService } from '../../../../services/client-admin.service';
 import { ClientService } from '../../../../services/client.service';
 import { Client } from '../../../../models/Client';
+import { ClientAdmin } from '../../../../models/ClientAdmin';
 import { AuthService } from '../../../../services/auth.service';
 
 @Component({
@@ -16,40 +17,47 @@ export class ProfileComponent implements OnInit {
   clientId: string;
   clientAdminId: string;
 
-  constructor(private clientAdminService: ClientAdminService, private clientService: ClientService, private authService: AuthService) {
+  clientAdmins: ClientAdmin[];
 
+  constructor(
+    private clientAdminService: ClientAdminService, 
+    private clientService: ClientService, 
+    private authService: AuthService) { }
+
+
+  ngOnInit() {
     this.authService.clientAdmin.subscribe( data => {
       if (data) {
         this.clientId= data.clientId;
         this.clientAdminId= data.clientAdminId;
         this.getClient();
+        this.getClientAdmins();
       }
       else { 
         console.log('Error: no clientID found'); 
       }
     });
-
-    
    }
-
-
-  ngOnInit() { }
 
 
   getClient() {
     this.clientService.getClient(this.clientId).subscribe( data => {
       if (data) {
         this.client= data;
-      }
-      else {
+      } else {
         console.log('error getting client');
       }
     });
-
   }
 
   getClientAdmins() {
-    this.clientAdminService.getClientAdmin(this.clientId).subscribe
+    this.clientAdminService.getClientAdmins().subscribe( data => {
+      if (data) {
+        this.clientAdmins= data;
+      } else {
+        console.log('error getting client admins');
+      }
+    });
   }
 
  
