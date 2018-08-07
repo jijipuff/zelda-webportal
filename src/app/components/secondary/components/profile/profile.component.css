@@ -1,36 +1,14 @@
-.row {
-    padding: 5px;
-    font-size: 14pt;
+a {
+    color: #03837c;
 }
 
-.text-center {
-    padding: 10px;
+a:link {
+    color: #03837c;  
 }
 
-
-.row {
-    padding-top: 10px;
-   
+a:hover {
+    color: #024b47;
 }
-
-.col-md-12 {
-    background-color: white;
-    padding: 10px;
-}
-
-.module {
-  padding-top: 10px;
-  padding-bottom: 50px;
-  padding-left: 20px;
-  padding-right: 20px;
-  color: rgb(43, 43, 43);
-  max-height: 1000px;
-  min-height: 600px;
-  min-width: 50px;
-  background-color: #949393;
-  border-radius: 2px;
-}
-
 
 #btnrow {
     padding: 50px;
@@ -38,10 +16,20 @@
 }
 
 input {
-    width: 500px;
+    
 }
+
+
 
 form {
     width: 500px;
+}
+
+.form-control {
+    width: 500px;
+}
+
+#photoInput {
+    width: 250px;
 }
 

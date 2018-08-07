@@ -28,7 +28,7 @@
 
     <div class="row justify-content-end">
       <div class="col-md-7">
-        <button (click)="filterByGender(null)" *ngIf="this.genderFilter$.getValue()">
+        <button type="button" class="btn-secondary btn-sm" (click)="filterByGender(null)" *ngIf="this.genderFilter$.getValue()">
             <i class="fa fa-times" aria-hidden="true"></i>
           <em> {{gender}}</em>
         </button>
@@ -62,7 +62,7 @@
 
     <div class="row justify-content-end">
       <div class= "col-md-7">
-      <button (click)="filterByRace(null)" *ngIf="this.raceFilter$.getValue()">
+      <button type="button" class="btn-secondary btn-sm" (click)="filterByRace(null)" *ngIf="this.raceFilter$.getValue()">
           <i class="fa fa-times" aria-hidden="true"></i>
         <em> {{ race }} </em>
       </button>
@@ -94,7 +94,7 @@
 
     <div class="row justify-content-end">
       <div class= "col-md-7">
-      <button type="button" (click)="filterByNationality(null)" *ngIf="this.nationalityFilter$.getValue()">
+      <button type="button" class="btn-secondary btn-sm" (click)="filterByNationality(null)" *ngIf="this.nationalityFilter$.getValue()">
           <i class="fa fa-times" aria-hidden="true"></i>
         <em> {{ nationality }}</em>
       </button>

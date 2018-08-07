@@ -10,16 +10,12 @@ import { Applicant } from '../../../../models/Applicant';
 export class ApplicantsComponent implements OnInit {
 
   applicants: Applicant[];
-
   selectedApplicant: Applicant;
-
   studentInfo: boolean;
 
   
 
-  constructor(private applicantService: ApplicantService) { 
-    console.log("applicants...");
-  }
+  constructor(private applicantService: ApplicantService) {}
 
   ngOnInit() {
     this.applicantService.getApplicants()
