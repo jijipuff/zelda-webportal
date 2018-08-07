@@ -1,0 +1,15 @@
+.icon {
+    display: flex;
+}
+
+
+.bursaries li.selected:hover {
+    background-color:#949393 !important;
+    color: rgb(29, 28, 28);
+  }
+  
+.bursaries li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+}
