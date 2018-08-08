@@ -22,14 +22,10 @@ export class SearchComponent implements OnInit {
   raceFilter$: BehaviorSubject<string | null>
   nationalityFilter$: BehaviorSubject<string | null>
 
-  races: boolean;
-  genders: boolean;
-  nationalities: boolean;
 
-  searchResults: Array<Applicant> = [];
-
-  showresults: boolean;
-
+  gender: string= '';
+  race: string='';
+  nationality: string='';
 
   constructor(afs: AngularFirestore) {
 
@@ -55,32 +51,22 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-   this.races= false;
-   this.genders= false;
-   this.nationalities= false;
 
   }
 
 
   filterByGender(gender: string | null) {
     this.genderFilter$.next(gender);
+    this.gender= gender;
   }
   filterByRace(race: string | null) {
     this.raceFilter$.next(race);
+    this.race= race;
   }
   filterByNationality(nationality: string | null) {
     this.nationalityFilter$.next(nationality);
+    this.nationality= nationality;
   }
 
-
-  showRaces() {
-    this.races= !this.races;
-  }
-  showGenders() {
-    this.genders= !this.genders;
-  }
-  showNationalities() {
-    this.nationalities= !this.nationalities;
-  }
 
 }
