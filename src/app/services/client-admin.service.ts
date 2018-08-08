@@ -40,7 +40,11 @@ export class ClientAdminService {
     }));
 
     return this.clientAdmins;
-    
+  }
+
+  addAdmin(clientadmin: ClientAdmin) {
+    //stuff
+
   }
 
 

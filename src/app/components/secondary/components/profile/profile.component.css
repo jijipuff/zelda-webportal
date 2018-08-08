@@ -19,8 +19,6 @@ input {
     
 }
 
-
-
 form {
     width: 500px;
 }
@@ -33,3 +31,12 @@ form {
     width: 250px;
 }
 
+#mymodal {
+    width: 600px;
+    justify-content: center;
+    padding: 100px;
+}
+
+#admin {
+    width: 400px;
+}

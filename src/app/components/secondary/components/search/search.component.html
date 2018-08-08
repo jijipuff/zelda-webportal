@@ -15,7 +15,7 @@
           <span class="caret"></span>
         </button>
 
-        <ul class="dropdown-menu" role="menu" >
+        <ul class="dropdown-menu" role="menu">
           <li>
             <a (click)="filterByGender('Female')">Female</a>
           </li>
@@ -29,7 +29,7 @@
     <div class="row justify-content-end">
       <div class="col-md-7">
         <button type="button" class="btn-secondary btn-sm" (click)="filterByGender(null)" *ngIf="this.genderFilter$.getValue()">
-            <i class="fa fa-times" aria-hidden="true"></i>
+          <i class="fa fa-times" aria-hidden="true"></i>
           <em> {{gender}}</em>
         </button>
       </div>
@@ -43,7 +43,7 @@
           <span class="caret"></span>
         </button>
 
-        <ul class="dropdown-menu" role="menu" >
+        <ul class="dropdown-menu" role="menu">
           <li>
             <a (click)="filterByRace('White')">White</a>
           </li>
@@ -61,17 +61,17 @@
     </div>
 
     <div class="row justify-content-end">
-      <div class= "col-md-7">
-      <button type="button" class="btn-secondary btn-sm" (click)="filterByRace(null)" *ngIf="this.raceFilter$.getValue()">
+      <div class="col-md-7">
+        <button type="button" class="btn-secondary btn-sm" (click)="filterByRace(null)" *ngIf="this.raceFilter$.getValue()">
           <i class="fa fa-times" aria-hidden="true"></i>
-        <em> {{ race }} </em>
-      </button>
-    </div>
+          <em> {{ race }} </em>
+        </button>
+      </div>
     </div>
 
 
     <div class="row text-muted">
-      <div class= "col-md-1"></div>
+      <div class="col-md-1"></div>
       <div class="col-md-4"> Nationality </div>
       <div class="col-md-7 btn-group">
         <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Select Nationality
@@ -93,12 +93,12 @@
     </div>
 
     <div class="row justify-content-end">
-      <div class= "col-md-7">
-      <button type="button" class="btn-secondary btn-sm" (click)="filterByNationality(null)" *ngIf="this.nationalityFilter$.getValue()">
+      <div class="col-md-7">
+        <button type="button" class="btn-secondary btn-sm" (click)="filterByNationality(null)" *ngIf="this.nationalityFilter$.getValue()">
           <i class="fa fa-times" aria-hidden="true"></i>
-        <em> {{ nationality }}</em>
-      </button>
-    </div>
+          <em> {{ nationality }}</em>
+        </button>
+      </div>
     </div>
 
 
@@ -110,28 +110,30 @@
   <div class="col-md-7 box">
     <h3 class="text-muted text-center mb-3 mt-2 txt"> Search Results </h3>
 
-    <table class="table bg-light text-center table-responsive table-striped" *ngIf="userDemographics$ | async; let userDemographics; else loading">
-      <thead>
-        <tr class="text-muted">
-          <th> Race </th>
-          <th> Gender </th>
-          <th> Nationality </th>
-        </tr>
-      </thead>
-      <tbody class="students">
-
-        <tr *ngFor="let user of userDemographics" class="selected">
-          <td> {{ user.race }} </td>
-          <td> {{ user.gender }} </td>
-          <td> {{ user.nationality}} </td>
-        </tr>
-
-        <ng-template #loading>Loading&hellip;</ng-template>
-
-      </tbody>
-
+    <div class="col-md-12" *ngIf="userDemographics$ | async; let userDemographics; else loading">
+      <div class="p-2" *ngIf="userDemographics.length>0"> <em> {{userDemographics.length}} students found </em> </div>
       <div class="p-2" *ngIf="userDemographics.length === 0"> No results, try clearing filters </div>
-    </table>
+      <table class="table bg-light text-center table-responsive table-striped">
+        <thead>
+          <tr class="text-muted">
+            <th> Race </th>
+            <th> Gender </th>
+            <th> Nationality </th>
+          </tr>
+        </thead>
+        <tbody class="students">
+
+          <tr *ngFor="let user of userDemographics" class="selected">
+            <td> {{ user.race }} </td>
+            <td> {{ user.gender }} </td>
+            <td> {{ user.nationality}} </td>
+          </tr>
+
+          <ng-template #loading>Loading&hellip;</ng-template>
+
+        </tbody>
+      </table>
+    </div>
 
   </div>
 

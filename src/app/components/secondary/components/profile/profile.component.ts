@@ -13,10 +13,13 @@ import { AuthService } from '../../../../services/auth.service';
 export class ProfileComponent implements OnInit {
 
   selectedFile= null;
-  client: Client= null;
+  client: Client;
   clientId: string;
   clientAdminId: string;
 
+  newAdmin: ClientAdmin;
+
+  clientAdmin: ClientAdmin;
   clientAdmins: ClientAdmin[];
 
   constructor(
@@ -24,12 +27,12 @@ export class ProfileComponent implements OnInit {
     private clientService: ClientService, 
     private authService: AuthService) { }
 
-
   ngOnInit() {
     this.authService.clientAdmin.subscribe( data => {
       if (data) {
         this.clientId= data.clientId;
         this.clientAdminId= data.clientAdminId;
+        this.clientAdmin= data;
         this.getClient();
         this.getClientAdmins();
       }
@@ -37,6 +40,7 @@ export class ProfileComponent implements OnInit {
         console.log('Error: no clientID found'); 
       }
     });
+   
    }
 
 
@@ -60,6 +64,10 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  addClientAdmin() {
+    this.clientAdminService.addAdmin(this.newAdmin);
+  }
+  
  
   onFileSelected(event) {
     console.log(event);
@@ -68,6 +76,8 @@ export class ProfileComponent implements OnInit {
 
   onUpload() {
     /** Figure out how to upload photo to FireStore */
+
+    
   }
 
   onSubmit({value, valid}: {value: string, valid: boolean}) {
