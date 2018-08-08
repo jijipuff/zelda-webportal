@@ -1,7 +1,14 @@
 label {
     color: #1D3C32;
     font-weight: bold;
-    /** background-color: #c0c0c0; */
+    border-radius: 5px;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+#labelsmall {
+    color: #1D3C32;
+    font-weight: 500;
     border-radius: 5px;
     padding-right: 4px;
     padding-left: 4px;

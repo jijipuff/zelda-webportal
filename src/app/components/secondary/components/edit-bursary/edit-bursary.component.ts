@@ -13,6 +13,8 @@ export class EditBursaryComponent implements OnInit {
   bursaryId: string;
   bursary: Bursary;
 
+  readOnly: boolean;
+
   applicableFieldsOptions= [];
   dropdownSettings= {};
 
@@ -46,6 +48,15 @@ export class EditBursaryComponent implements OnInit {
       enableSearchFilter: true,
       classes: 'custom-class-example'
     };
+
+    this.readOnly= false;
   }
+
+  editProfile(): void {
+
+
+  }
+
+
 
 }

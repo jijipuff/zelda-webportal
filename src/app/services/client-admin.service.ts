@@ -43,9 +43,17 @@ export class ClientAdminService {
   }
 
   addAdmin(clientadmin: ClientAdmin) {
-    //stuff
-
+    return new Promise((resolve, reject)=> {
+      this.clientAdminCollection.add(clientadmin)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(err => {
+        reject(err);
+      });
+    });
   }
+
 
 
 

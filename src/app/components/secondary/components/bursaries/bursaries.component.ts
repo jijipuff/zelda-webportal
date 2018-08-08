@@ -21,7 +21,7 @@ export class BursariesComponent implements OnInit {
       this.bursaries = data;
     });
     this.bursaryinfo= false;
-    this.filterby= 'Filter By';
+    this.filterby= 'Order By';
   }
 
   filter(event): void {
