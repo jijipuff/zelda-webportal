@@ -1,9 +1,17 @@
 <nav class="navbar">
   <a class="navbar-brand">Welcome To Your Dashboard !</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
+  <div class="col-xl-4">
+    <div class="dropdown">
+      <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">Select Bursary
+        <span></span>
+      </button>
+      <ul class="dropdown-menu bursaries">
+        <li *ngFor="let bursary of bursaries" class="selected" (click)="showInfo(bursary)">
+          <a> {{ bursary.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
 <div class="row mb-12 bg-dark">
@@ -77,7 +85,6 @@
   </div>
 </div>
 
-
 <div class="row">
   <div class="col-sm-6 col-xl-6 p-4">
     <div class="card border-dark">
@@ -85,18 +92,6 @@
         <div class="row">
           <div class="col-md-8">
             <h4>Bursary Completion Status</h4>
-          </div>
-          <div class="col-xl-4">
-            <div class="dropdown">
-              <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">Select Bursary
-                <span></span>
-              </button>
-              <ul class="dropdown-menu bursaries">
-                <li *ngFor="let bursary of bursaries" class="selected" (click)="showInfo(bursary)">
-                  <a> {{ bursary.title }}</a>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -116,153 +111,43 @@
             <a href="#" class="btn btn-warning">View Your Bursaries</a>
           </div>
         </div>
-        <div class="card card-common border-dark">
-          <div class="card-body">
-            <div class="d-flex justify-content-between">
-              <h3>Metrics Here!</h3>
-              <p>Would be super cool to have bursary metrics here with donut charts</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3 col-xl-3 p-4">
-    <div class="card border-dark bg-light">
-      <div class="card-body p-4">
-        <h4 class="card-title">Recommended</h4>
-        <div class="card border-dark" style="width: 30 rem;">
-          <ul class="list-group list-group-flush bursaries">
-            <li class="list-group-item">Jamie Oliver
-              <i class="fa fa-plus text-success"></i>
-            </li>
-            <li class="list-group-item">Gordan Ramsay
-              <i class="fa fa-plus text-success"></i>
-            </li>
-            <li class="list-group-item">Rachael Ray
-              <i class="fa fa-plus text-success"></i>
-            </li>
-            <li class="list-group-item">Alton Brown
-              <i class="fa fa-plus text-success"></i>
-            </li>
-          </ul>
-        </div>
-        <div class="p-2">
-          <a href="#" class="btn btn-warning">View Applicants</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3 col-xl-3 p-4">
-    <div class="card border-dark bg-light">
-      <div class="card-body p-4">
-        <h4 class="card-title">Top Applicants</h4>
-        <div class="card border-dark" style="width: 30 rem;">
-          <ul class="list-group list-group-flush bursaries">
-            <li class="list-group-item">Guy Fieri</li>
-            <li class="list-group-item">Anthony Bourdain</li>
-            <li class="list-group-item">Bobby Flay</li>
-            <li class="list-group-item">Martha Stewart</li>
-          </ul>
-        </div>
-        <div class="p-2">
-          <a href="#" class="btn btn-warning">View Applicants</a>
-          <a href="#" class="btn btn-dark">Edit</a>
-        </div>
       </div>
     </div>
   </div>
   <div class="col-sm-6 col-xl-6 p-4">
-    <div class="card border-dark">
-      <div class="card-header">
-        <h4>Articles</h4>
+    <div class="card card-common border-dark">
+      <div class="card-body">
+        <div class="justify-content-between">
+          <h3>Metrics Here!</h3>
+          <p>Would be super cool to have bursary metrics here with donut charts</p>
+        </div>
       </div>
-      <div class="card-body bg-light">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="thumbnail">
-                    <a href="...">
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Puppy_on_Halong_Bay.jpg/281px-Puppy_on_Halong_Bay.jpg"
-                        style="width:100%">
-                      <div class="caption">
-                        <p>Lorem ipsum...</p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="thumbnail">
-                    <a href="...">
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Puppy_on_Halong_Bay.jpg/281px-Puppy_on_Halong_Bay.jpg"
-                        style="width:100%">
-                      <div class="caption">
-                        <p>Lorem ipsum...</p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="thumbnail">
-                    <a href="...">
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Puppy_on_Halong_Bay.jpg/281px-Puppy_on_Halong_Bay.jpg"
-                        style="width:100%">
-                      <div class="caption">
-                        <p>Lorem ipsum...</p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="thumbnail">
-                    <a href="...">
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Puppy_on_Halong_Bay.jpg/281px-Puppy_on_Halong_Bay.jpg"
-                        style="width:100%">
-                      <div class="caption">
-                        <p>Lorem ipsum...</p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="thumbnail">
-                    <a href="...">
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Puppy_on_Halong_Bay.jpg/281px-Puppy_on_Halong_Bay.jpg"
-                        style="width:100%">
-                      <div class="caption">
-                        <p>Lorem ipsum...</p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="thumbnail">
-                    <a href="...">
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Puppy_on_Halong_Bay.jpg/281px-Puppy_on_Halong_Bay.jpg"
-                        style="width:100%">
-                      <div class="caption">
-                        <p>Lorem ipsum...</p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+    </div>
+  </div>
+
+  <div class="col-sm-5 col-xl-5 p-4">
+    <div class="card border-dark bg-light">
+      <div class="card-body p-4">
+        <h4 class="card-title">Top Applicants</h4>
+        <div style="width: 30 rem;">
+          <ul class="list-group list-group-flush bursaries">
+            <li class="list-group-item">Jamie Oliver
+              <i class="fa fa-plus text-success pull-right"></i>
+            </li>
+            <li class="list-group-item">Gordan Ramsay
+              <i class="fa fa-plus text-success pull-right"></i>
+            </li>
+            <li class="list-group-item">Rachael Ray
+              <i class="fa fa-plus text-success pull-right"></i>
+            </li>
+            <li class="list-group-item">Alton Brown
+              <i class="fa fa-plus text-success pull-right"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="p-2">
+          <a class="btn btn-warning">View Applicants</a>
+          <a class="btn btn-dark text-light">Edit</a>
         </div>
       </div>
     </div>
