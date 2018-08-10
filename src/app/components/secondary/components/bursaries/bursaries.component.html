@@ -22,6 +22,7 @@
             <tr class="text-muted">
               <th>Title</th>
               <th>Closing Date</th>
+              <th> Preview </th>
               <th> Options</th>
             </tr>
           </thead>
@@ -29,6 +30,7 @@
             <tr *ngFor="let bursary of bursaries" routerLink="/bursary/edit/{{bursary.bursaryId}}" >
               <td> {{ bursary.title }} </td>
               <td> {{ bursary.closingDate.toDate() | date: 'dd/MM/yyyy' }} </td>
+              <td> <button class="btn btn-secondary btn-sm button" routerLink="/bursary/{{bursary.bursaryId}}"> Preview </button></td>
               <td>
                 <button class="btn btn-success btn-sm button">Close Applications</button>
                 <button class="btn-danger btn-sm button" data-toggle="modal" data-target="#cancelModal"
