@@ -17,7 +17,13 @@ export class ProfileComponent implements OnInit {
   clientId: string;
   clientAdminId: string;
 
-  newAdmin: ClientAdmin;
+  newAdmin: ClientAdmin= {
+    clientAdminId: '',
+    email: '',
+    clientId: '',
+    firstName: '',
+    lastName: ''
+  }
 
   clientAdmin: ClientAdmin;
   clientAdmins: ClientAdmin[];
@@ -66,7 +72,22 @@ export class ProfileComponent implements OnInit {
   }
 
   addClientAdmin() {
-    this.clientAdminService.addAdmin(this.newAdmin);
+    this.newAdmin.clientId= this.clientId;
+    this.clientAdminService.addAdmin(this.newAdmin)
+    .then(res => {
+      console.log(res);
+      this.newAdmin = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        clientId: ''
+      };
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
+
   }
   
  

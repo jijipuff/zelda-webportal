@@ -32,3 +32,11 @@ a:hover {
     justify-content: center;
     display: flex;
 }
+
+.fa-pencil {
+    color: #03837c;
+}
+
+.fa-pencil:hover {
+    color: #024b47;
+}

@@ -3,6 +3,8 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable, of } from 'rxjs';
 import { Bursary } from '../models/Bursary';
 import { map } from 'rxjs/operators';
+import { resolve } from 'url';
+import { reject } from '../../../node_modules/@types/q';
 
 @Injectable({
   providedIn: 'root'
@@ -62,9 +64,13 @@ export class BursaryService {
   }
 
   deleteBursary(id: string) {
-    console.log(id);
     this.bursaryDocument= this.afs.doc(`Bursaries/${id}`)
     this.bursaryDocument.delete();
+  }
+
+  updateBursary(id: string, bursary: Bursary) {
+    this.bursaryDocument= this.afs.doc(`Bursaries/${id}`)
+    this.bursaryDocument.update(bursary); 
   }
 
 

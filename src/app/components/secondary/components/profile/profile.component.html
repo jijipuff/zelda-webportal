@@ -33,19 +33,13 @@
         <div class="form-group">
           <label class="col-lg-5 control-label">Company Name</label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value={{client.title}}>
+            <input class="form-control" type="text" value={{client.title}} readonly>
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-5 control-label"> Link </label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value={{client.link}}>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-5 control-label">Locations</label>
-          <div class="col-lg-8">
-            <input class="form-control" type="text" value="locations">
+            <input class="form-control" type="text" value={{client.link}} readonly>
           </div>
         </div>
         <div class="form-group">
@@ -62,7 +56,7 @@
         <div class="form-group">
           <label class="col-lg-7 control-label"> Company Admins</label>
           <div class="col-lg-8" *ngFor="let admin of clientAdmins">
-            <input class="form-control" type="text" value="{{admin.firstName}} {{admin.lastName}} ({{admin.email}})">
+            <input class="form-control" type="text" value="{{admin.firstName}} {{admin.lastName}} ({{admin.email}})" readonly>
           </div>
           <button type="button" class="btn btn-link" data-toggle="modal" data-target="#addAdmin"> <i class="fa fa-plus" aria-hidden="true"></i> Add Admin</button>
         </div>
@@ -102,9 +96,9 @@
               </button>
             </div>
             <div class="modal-body">
-              <input class= "form-control" id= "admin"type="text" placeholder="First Name"  >
-              <input class= "form-control" id= "admin" type="text" placeholder="Last Name" >
-              <input class= "form-control" id= "admin" type="text" placeholder="Email"  >
+              <input class= "form-control" id= "admin"type="text" placeholder="First Name" [(ngModel)]="newAdmin.firstName">
+              <input class= "form-control" id= "admin" type="text" placeholder="Last Name" [(ngModel)]="newAdmin.lastName">
+              <input class= "form-control" id= "admin" type="text" placeholder="Email" [(ngModel)]="newAdmin.email">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancel</button>

@@ -17,17 +17,23 @@
 <div class="container">
   <hr>
   <div class="row">
-    <!-- left column -->
-    <div class="col-md-3"> </div>
 
-    <!-- edit form column -->
-    <div class="col-md-9 personal-info" *ngIf="bursary">
+    <div class="col-md-3"></div>
+
+    <!-- View Bursary Column -->
+    <div class="col-md-9 personal-info" *ngIf="bursary && editState==false">
+
+      <div class="col-lg-8 text-right">
+        <a class="btn-link" (click)="edit()">
+          <i class="fa fa-pencil fa-2x"></i>
+        </a>
+      </div>
 
       <form class="form-horizontal" role="form">
         <div class="form-group">
           <label class="col-lg-3 control-label">Bursary Title:</label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value={{bursary.title}} >
+            <input class="form-control" type="text" value={{bursary.title}} readonly>
           </div>
         </div>
         <div class="form-group">
@@ -39,39 +45,90 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Closing Date</label>
           <div class="col-lg-8">
-            <input class="form-control" type="date" value={{bursary.closingDate.toDate()}} readonly>
+            <input class="form-control" type="text" value="{{bursary.closingDate.toDate() | date: 'dd/MM/yyyy'}}" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Description</label>
+          <div class="col-lg-8" contenteditable="true">
+            <textarea class="form-control" type="text" value={{bursary.description}} readonly> </textarea>
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Requirements:</label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value="" readonly>
+            <textarea class="form-control" type="text" value={{bursary.requirements}} readonly></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Fields:</label>
+          <div class="col-lg-8">
+            <textarea class="form-control" type="text" value={{bursary.fields}} readonly></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-5 control-label">Support Provided:</label>
+          <div class="col-lg-8">
+            <textarea class="form-control" type="text" value={{bursary.supportProvided}} readonly></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+    <!-- Edit Bursary Column -->
+    <div class="col-md-9 personal-info" *ngIf="bursary && editState">
+
+      <form class="form-horizontal" role="form" (ngSubmit)="updateBursary()">
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Bursary Title:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="bursary.title" name="title">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Bursary Url:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" [(ngModel)]="bursary.bursaryUrl" name="url">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Closing Date</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="date" [(ngModel)]="bursary.closingDate" name="closingdate">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Description</label>
+          <div class="col-lg-8">
+            <textarea class="form-control" type="text" [(ngModel)]="bursary.description" name="description"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Requirements:</label>
+          <div class="col-lg-8">
+            <textarea class="form-control" type="text" [(ngModel)]="bursary.requirements" name="requirements"></textarea>
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Applicable Fields:</label>
-          <div class="col-lg-8">
+          <div class="col-lg-8 form-control">
             <angular2-multiselect name="applicableFields" [data]="applicableFieldsOptions" [(ngModel)]="bursary.applicableFields" [settings]="dropdownSettings">
             </angular2-multiselect>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-lg-3 control-label">Support Provided:</label>
+          <label class="col-lg-5 control-label">Support Provided:</label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value="" readonly>
+            <textarea class="form-control" type="text" [(ngModel)]="bursary.supportProvided" name="supportProvided"> </textarea>
           </div>
         </div>
-        <div class="form-group">
-          
-          <div class="col-md-4">
-            <button type="button" class="btn btn-default" (click)= "editProfile()"> Edit</button>
-            <span></span>
-          </div>
-        </div>
-
+        <input type="submit" value="Submit" class="btn" (click)="edit()">
       </form>
 
     </div>
+
+
   </div>
 </div>
 <hr>

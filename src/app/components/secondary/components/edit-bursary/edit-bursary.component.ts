@@ -13,14 +13,15 @@ export class EditBursaryComponent implements OnInit {
   bursaryId: string;
   bursary: Bursary;
 
-  readOnly: boolean;
+  description: string;
+
+  editState: boolean;
 
   applicableFieldsOptions= [];
   dropdownSettings= {};
 
   constructor(
     private bursaryService: BursaryService,
-    private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -29,6 +30,7 @@ export class EditBursaryComponent implements OnInit {
       if (data != null) {
         console.log(data);
         this.bursary = data;
+        this.description= this.bursary.description;
       } else {
         console.log('Error loading bursary');
       }
@@ -49,13 +51,20 @@ export class EditBursaryComponent implements OnInit {
       classes: 'custom-class-example'
     };
 
-    this.readOnly= false;
+    this.editState= false;
   }
 
-  editProfile(): void {
-
-
+  edit(): void {
+    this.editState= !this.editState;
   }
+
+  updateBursary(): void {
+    this.bursaryService.updateBursary(this.bursaryId, this.bursary);
+  }
+
+
+
+
 
 
 

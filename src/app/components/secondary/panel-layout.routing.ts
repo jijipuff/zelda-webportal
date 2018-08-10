@@ -19,7 +19,6 @@ export const PanelLayoutRoutes: Routes = [
     { path: 'bursary/edit/:id', component: EditBursaryComponent },
     { path: 'applicants', component: ApplicantsComponent },
     { path: 'profile', component: ProfileComponent},
-    { path: 'applicants', component: ApplicantsComponent },
     { path: 'messaging', component: MessagingComponent },
     { path: 'search', component: SearchComponent}
 ];
