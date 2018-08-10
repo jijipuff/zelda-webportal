@@ -7,7 +7,6 @@ import { PanelLayoutRoutes } from './panel-layout.routing';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 
-import { BursaryDetailsComponent } from './components/bursary-details/bursary-details.component';
 import { EditBursaryComponent } from './components/edit-bursary/edit-bursary.component';
 import { AddBursaryComponent } from './components/add-bursary/add-bursary.component';
 import { BursariesComponent } from './components/bursaries/bursaries.component';
@@ -30,7 +29,6 @@ import { MessagingComponent } from './components/messaging/messaging.component';
     FormsModule
   ],
   declarations: [
-    BursaryDetailsComponent,
     EditBursaryComponent,
     AddBursaryComponent,
     BursariesComponent,

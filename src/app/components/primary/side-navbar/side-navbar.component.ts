@@ -19,5 +19,6 @@ export class SideNavbarComponent implements OnInit {
         this.loggedInUser = auth.email;
       }
     });
+    console.log("email" + this.loggedInUser);
   }
 }

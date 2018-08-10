@@ -15,9 +15,7 @@ export class ApplicantsComponent implements OnInit {
   selectedApplicant: Applicant;
 
 
-  constructor(private applicantService: ApplicantService) { 
-    console.log("applicants...");
-  }
+  constructor(private applicantService: ApplicantService) {}
 
   ngOnInit() {
     this.applicantService.getApplicants().subscribe(data => { 

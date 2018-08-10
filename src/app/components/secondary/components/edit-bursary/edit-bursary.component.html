@@ -1,29 +1,27 @@
 <div class="row">
-
   <div class="col-12">
-    <div class="col-md-6 p-2">
-      <a routerLink="/bursaries" class="btn-link">
-        <i class="fa fa-arrow-circle-o-left"></i> Back to Bursaries
-      </a>
+    <div class="row">
+      <div class="col-md-6 p-2">
+        <a routerLink="/bursaries" class="btn-link">
+          <i class="fa fa-arrow-circle-o-left"></i> Back to Bursaries </a>
+      </div>
+      <div class="col-md-6 text-right">
+        <button class="btn btn-link" id="deleteBtn" data-toggle="modal" data-target="#cancelModal" routerLink="/bursary/delete/{{bursaryId}}">
+          <i class="fa fa-trash" aria-hidden="true"></i> Delete Bursary</button>
+      </div>
     </div>
     <h2 class="text-center"> Edit Bursary</h2>
   </div>
-
 </div>
 
 <div class="container">
   <hr>
   <div class="row">
-
+    <!-- left column -->
+    <div class="col-md-3"> </div>
 
     <!-- edit form column -->
     <div class="col-md-9 personal-info" *ngIf="bursary">
-      <div class="alert alert-info alert-dismissable">
-        <a class="panel-close close" data-dismiss="alert">×</a>
-        <i class="fa fa-coffee"></i>
-        This is an
-        <strong>.alert</strong>. Use this to show important messages to the user.
-      </div>
       <h3>Bursary info</h3>
 
       <form class="form-horizontal" role="form">
@@ -51,35 +49,30 @@
             <input class="form-control" type="text" value="">
           </div>
         </div>
-
         <div class="form-group">
           <label class="col-lg-3 control-label">Applicable Fields:</label>
-          <div class= "col-lg-8">
-              <angular2-multiselect name="applicableFields" [data]="applicableFieldsOptions" [(ngModel)]="bursary.applicableFields" [settings]="dropdownSettings">
-              </angular2-multiselect>
-            </div>
-          
+          <div class="col-lg-8">
+            <angular2-multiselect name="applicableFields" [data]="applicableFieldsOptions" [(ngModel)]="bursary.applicableFields" [settings]="dropdownSettings">
+            </angular2-multiselect>
+          </div>
         </div>
-
         <div class="form-group">
           <label class="col-lg-3 control-label">Support Provided:</label>
           <div class="col-lg-8">
             <input class="form-control" type="text" value="">
           </div>
         </div>
-
-
-
-
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
-          <div class="col-md-8">
+          <div class="col-md-4">
             <input type="button" class="btn btn-default" value="Save Changes">
             <span></span>
             <input type="reset" class="btn btn-default" value="Cancel">
           </div>
         </div>
+
       </form>
+
     </div>
   </div>
 </div>

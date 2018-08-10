@@ -3,5 +3,5 @@ export interface Client {
     title?: string;
     link?: string;
     subscription?: string;
-    clientAdmins?: string[];
+    photo?: string;
 }

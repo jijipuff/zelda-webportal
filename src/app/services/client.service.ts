@@ -12,5 +12,11 @@ export class ClientService {
   clientDocument: AngularFirestoreDocument<Client>;
   client: Observable<Client>;
 
-  constructor() { }
+  constructor(private afs: AngularFirestore) { }
+
+  getClient(id: string): Observable<Client> {
+    this.clientDocument= this.afs.doc<Client>(`Clients/${id}`);
+    this.client= this.clientDocument.valueChanges();
+    return this.client;
+  }
 }

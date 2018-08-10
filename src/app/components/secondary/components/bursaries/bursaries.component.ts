@@ -12,9 +12,6 @@ export class BursariesComponent implements OnInit {
 
   bursaryinfo: boolean;
 
-  selectedBursary: Bursary;
-
-  filter: boolean;
   filterby: string;
 
   constructor(private bursaryService: BursaryService) { }
@@ -24,23 +21,11 @@ export class BursariesComponent implements OnInit {
       this.bursaries = data;
     });
     this.bursaryinfo= false;
-    this.filter= true;
     this.filterby= 'Filter By';
   }
 
-
-  showInfo(bursary: Bursary)  {
-
-    this.bursaryinfo= true;
-    this.selectedBursary= bursary;
-
-  }
-
-  filterBy(): void {
-
-    //this.filterby= filter;
-1
-    console.log(this.filterby);
+  filter(event): void {
+    console.log(event);
   }
 
 
