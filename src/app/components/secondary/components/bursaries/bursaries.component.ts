@@ -31,25 +31,8 @@ export class BursariesComponent implements OnInit {
     this.bursaryinfo= false;
 
     this.Bursaries$= this.afs.collection('Bursaries').valueChanges();
-   
-    /** 
-    this.Bursaries$ = combineLatest(
-      this.titleFilter$,
-      this.dateFilter$
-    ).pipe(
-      switchMap(([title, date]) =>
-        afs.collection('Bursaries', ref => {
-          let query: firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
-          if (title) { query = query.orderBy('title', 'asc') };
-          if (date) { query= query.orderBy('date', 'asc')};
-          return query;
-        }).valueChanges()
-      )
-    );
-    */
-   }
-
  
+   }
 
 
   ngOnInit() {

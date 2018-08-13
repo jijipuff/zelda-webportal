@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-md-6">
+        <a routerLink="/applicants" class="btn-link">
+            <i class="fa fa-arrow-circle-o-left"></i> Back to Applicants
+        </a>
+    </div>
+</div>
+
+<div class="row"> 
+<div class="col-md-12 box">
+    <h4 class="text-muted text-center mb-3 mt-2 txt"> Student Information</h4>
+    <div class="card">
+
+        <h4> {{ applicant.firstName }} {{ applicant.lastName }} </h4>
+
+        <div class="module applicant">
+
+            <div class="grid grid-pad">
+                <div class="row">
+                    <div class="col-md-4"> Gender </div>
+                    <div class="col-md-4"> Race </div>
+                    <div class="col-md-4"> Nationality</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="info"> {{ applicant.gender }} </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="info">{{ applicant.race }} </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="info">{{ applicant.nationality }} </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md"> Application Status</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"> Pending </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md"> Income Bands </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"> less than 100,000R/Year </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md"> Marks </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"> Mathematics: 78% </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>

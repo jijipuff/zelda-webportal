@@ -13,6 +13,7 @@ import { BursariesComponent } from './components/bursaries/bursaries.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SearchComponent } from './components/search/search.component';
 import { ApplicantsComponent } from './components/applicants/applicants.component';
+import { ApplicantDetailsComponent } from './components/applicant-details/applicant-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DeleteBursaryComponent } from './components/delete-bursary/delete-bursary.component';
 import { MessagingComponent } from './components/messaging/messaging.component';
@@ -35,6 +36,7 @@ import { PreviewBursaryComponent } from './components/preview-bursary/preview-bu
     DashboardComponent,
     SearchComponent,
     ApplicantsComponent,
+    ApplicantDetailsComponent,
     ProfileComponent,
     DeleteBursaryComponent,
     MessagingComponent,

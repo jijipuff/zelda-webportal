@@ -1,98 +1,103 @@
-<div class="row" >
+<div class="row">
   <div class="col-md-12 box">
-    <h3 class="text-muted text-center mb-3 mt-2 txt">Applicants</h3>
+    <h3 class="text-muted text-center mb-3 mt-2 txt">Manage Applicants</h3>
   </div>
 
-
-  <div class="col-md-6 box" *ngIf= "applicants?.length>0;else noApplicants">
-    <div class="card">
-      <div class="card-body">
-        <table class="table bg-light text-center table-responsive table-striped">
-          <thead>
-            <tr class="text-muted">
-              <th>Applicant</th>
-              <th> Date Applied </th>
-              <th> Options</th>
-            </tr>
-          </thead>
-          <tbody class="applicants">
-
-            <tr *ngFor="let applicant of applicants" class="selected" (click)="showInfo(applicant)">
-              <td> {{ applicant.firstName }} {{ applicant.lastName }} </td>
-              <td> {{ applicant.dateApplied.toDate() | date: 'dd/MM/yyyy' }} </td>
-              <td>
-                <button id="accept"> Accept </button>
-                <button id="decline"> Decline </button>
-
-              </td>
-
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <div class="row">
+    <h4>Insert search bar here!!</h4>
   </div>
 
-  <div class="col-md-6 box" *ngIf= "applicants?.length>0">
-    <h4 class="text-muted text-center mb-3 mt-2 txt"> Student Information</h4>
-    <div class="card" *ngIf="studentInfo">
-
-      <h4> {{selectedApplicant.firstName}} {{selectedApplicant.lastName }} </h4>
-
-      <div class="module applicant">
-
-        <div class="grid grid-pad">
-          <div class="row">
-            <div class="col-md-4"> Gender </div>
-            <div class="col-md-4"> Race </div>
-            <div class="col-md-4"> Nationality</div>
+  <table class="table text-center table-responsive table-striped">
+    <thead class="bg-dark text-light">
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Gender</th>
+        <th>Race</th>
+        <th>Nationality</th>
+        <th>Marks</th>
+        <th>Date Applied</th>
+        <th>Details</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let applicant of applicants" (click)="showInfo(applicant)" class="applicants">
+      <tr>
+        <td>
+          <div class="ckbox">
+            <input type="checkbox" class="custom-control-input" id="checkbox1">
+            <label for="checkbox1"></label>
           </div>
-
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="info"> {{selectedApplicant.gender}} </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="info">{{selectedApplicant.race}} </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="info">{{selectedApplicant.nationality }} </div>
-            </div>
+        </td>
+        <td>
+          <a class="star">
+            <i class="fa fa-star-o"></i>
+          </a>
+        </td>
+        <td>
+          <div class="media">
+            <a class="pull-left">
+              <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
+            </a>
           </div>
-
-          <div class="row">
-            <div class="col-md"> Application Status</div>
+        </td>
+        <td> {{ applicant.firstName }}</td>
+        <td> {{ applicant.lastName }} </td>
+        <td> {{ applicant.gender }}</td>
+        <td> {{ applicant.race }}</td>
+        <td> {{ applicant.nationality }}</td>
+        <td> {{ applicant.marks }}</td>
+        <td> {{ applicant.dateApplied.toDate() | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          <a routerLink="/applicant/{{applicant.applicantId}}" class="btn btn-secondary btn-sm">
+            <i class="fa fa-arrow-circle-o-right mr-1"></i>More Details
+          </a>
+        </td>
+        <td>
+          <button class="btn btn-success" type="button">Accept</button>
+          <button class="btn btn-warning" type="button">Pending</button>
+          <button class="btn btn-danger" type="button">Reject</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="ckbox">
+            <input type="checkbox" class="custom-control-input" id="checkbox2">
+            <label for="checkbox2"></label>
           </div>
-          <div class="row">
-            <div class="col-md-12"> Pending </div>
+        </td>
+        <td>
+          <a class="star">
+            <i class="fa fa-star-o"></i>
+          </a>
+        </td>
+        <td>
+          <div class="media">
+            <a class="pull-left">
+              <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
+            </a>
           </div>
-
-          <div class="row">
-            <div class="col-md"> Income Bands </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12"> less than 100,000R/Year </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md"> Marks </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12"> Mathematics: 78% </div>
-          </div>
-
-        </div>
-
-
-        <div class="moreInfo">
-          <button type="button" class="btn btn-outline-light">More Info</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <ng-template #noApplicants>
-    <hr>
-    <h5> No Applicants to display </h5>
-  </ng-template>
+        </td>
+        <td> Nelson </td>
+        <td> Mandela </td>
+        <td> Male </td>
+        <td> Black </td>
+        <td> South African</td>
+        <td> 100% </td>
+        <td> 13/08/2018 </td>
+        <td>
+          <a routerLink="/applicant/{{applicant.applicantId}}" class="btn btn-secondary btn-sm">
+            <i class="fa fa-arrow-circle-o-right mr-1"></i>More Details
+          </a>
+        </td>
+        <td>
+          <button class="btn btn-success" type="button">Accept</button>
+          <button class="btn btn-warning" type="button">Pending</button>
+          <button class="btn btn-danger" type="button">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
