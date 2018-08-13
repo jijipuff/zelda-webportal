@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { BursaryService } from '../../../../services/bursary.service';
+import { Component, OnInit } from '@angular/core';
 import { Bursary } from '../../../../models/Bursary';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
@@ -45,11 +45,23 @@ export class BursariesComponent implements OnInit {
 
 
   filterByTitle(title: string | null) {
-    this.Bursaries$= this.afs.collection('Bursaries', ref=> ref.orderBy('title', 'asc')).valueChanges();
+    this.Bursaries$= this.afs.collection('Bursaries', ref=> ref.orderBy('title', 'asc')).snapshotChanges().pipe(map(changes => {
+      return changes.map(action => {
+        const bursaryData = action.payload.doc.data() as Bursary;
+        bursaryData.bursaryId = action.payload.doc.id;
+        return bursaryData;
+      });
+    }));
   }
 
   filterByDate(date: string | null) {
-    this.Bursaries$= this.afs.collection('Bursaries', ref=> ref.orderBy('date', 'asc')).valueChanges();
+    this.Bursaries$= this.afs.collection('Bursaries', ref=> ref.orderBy('date', 'asc')).snapshotChanges().pipe(map(changes => {
+      return changes.map(action => {
+        const bursaryData = action.payload.doc.data() as Bursary;
+        bursaryData.bursaryId = action.payload.doc.id;
+        return bursaryData;
+      });
+    }));
   }
 
 }
