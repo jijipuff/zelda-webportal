@@ -2,7 +2,7 @@
     <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 bottom-border mb-4">Company Portal</a>
     <div class="bottom-border pb-3">
         <img src="assets/img/admin.jpeg" width="50" class="rounded-circle mr-3">
-        <a routerLink="/profile" class="text-white" [routerLinkActive]="['current']" [routerLinkActiveOptions]="{exact: true}"> Tiro Modibedi
+        <a routerLink="/profile" class="text-white" [routerLinkActive]="['current']" [routerLinkActiveOptions]="{exact: true}" *ngIf="clientId"> {{firstName}} {{lastName}}
          </a>
     </div>
     <ul class="navbar-nav flex-column mt-4">

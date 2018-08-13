@@ -1,20 +1,28 @@
 <nav class="navbar">
-  <a class="navbar-brand">Welcome To Your Dashboard !</a>
-  <div class="col-xl-4">
-    <div class="dropdown">
-      <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">Select Bursary
-        <span></span>
-      </button>
-      <ul class="dropdown-menu bursaries">
-        <li *ngFor="let bursary of bursaries" class="selected" (click)="showInfo(bursary)">
-          <a> {{ bursary.title }}</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <a class="navbar-brand" *ngIf="clientId">
+    <a>Welcome To Your Dashboard</a>
+    <a> {{firstName}}!</a>
+  </a>
 </nav>
 
-<div class="row mb-12 bg-dark">
+<div class="row bg-warning p-2">
+  <div class="col-md-12">
+    <div class="col-xl-4">
+      <div class="dropdown">
+        <button class="btn btn-lg btn-light dropdown-toggle" type="button" data-toggle="dropdown">Select Bursary
+          <span></span>
+        </button>
+        <ul class="dropdown-menu bursaries">
+          <li *ngFor="let bursary of bursaries" class="selected" (click)="showInfo(bursary)">
+            <a> {{ bursary.title }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-12 bg-dark" *ngIf= "bursaries?.length>0">
   <div class="col-sm-5 col-xl-3 p-2">
     <div class="card card-common border-dark">
       <div class="card-body">
@@ -22,9 +30,9 @@
           <i class="fa fa-group fa-3x text-warning"></i>
           <div class="text-right text-secondary">
             <h5>Accepted Students</h5>
-            <h1 class="text-dark">22</h1>
+            <h1 class="text-dark"> 23 </h1>
           </div>
-        </div>
+        </div>    
       </div>
       <div class="card-footer text-secondary">
         <i class="fa fa-sync mr-3"></i>
@@ -86,11 +94,11 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-6 col-xl-6 p-4">
+  <div class="col-sm-4 col-xl-4 p-4">
     <div class="card border-dark">
       <div class="card-header">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-12">
             <h4>Bursary Completion Status</h4>
           </div>
         </div>
@@ -102,19 +110,19 @@
           <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="33.3" aria-valuemin="0" aria-valuemax="100">30%</div>
         </div>
         <div class="row">
-          <div class="col-xl-8 btn-group p-2" role="group" aria-label="Basic example">
+          <div class="col-xl-12 btn-group p-2" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-light">20 filled</button>
             <button type="button" class="btn btn-light">33 shortlisted</button>
             <button type="button" class="btn btn-light">98 applied</button>
           </div>
           <div class="col-xl-4 p-2">
-            <a href="#" class="btn btn-warning">View Your Bursaries</a>
+            <a routerLink="/bursaries" class="btn btn-warning">View Your Bursaries</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-6 col-xl-6 p-4">
+  <div class="col-sm-4 col-xl-4 p-4">
     <div class="card card-common border-dark">
       <div class="card-body">
         <div class="justify-content-between">
@@ -125,7 +133,7 @@
     </div>
   </div>
 
-  <div class="col-sm-5 col-xl-5 p-4">
+  <div class="col-sm-4 col-xl-4 p-4">
     <div class="card border-dark bg-light">
       <div class="card-body p-4">
         <h4 class="card-title">Top Applicants</h4>
@@ -146,7 +154,7 @@
           </ul>
         </div>
         <div class="p-2">
-          <a class="btn btn-warning">View Applicants</a>
+          <a class="btn btn-warning" routerLink="/applicants">View Applicants</a>
           <a class="btn btn-dark text-light">Edit</a>
         </div>
       </div>

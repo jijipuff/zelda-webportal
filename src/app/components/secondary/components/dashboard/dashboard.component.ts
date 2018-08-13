@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BursaryService } from '../../../../services/bursary.service';
 import { Bursary } from '../../../../models/Bursary';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,13 +15,28 @@ export class DashboardComponent implements OnInit {
 
   selectedBursary: Bursary;
 
-  constructor(private bursaryService: BursaryService) { }
+  firstName: string;
+  clientId: string;
+
+  constructor(private bursaryService: BursaryService, private authService: AuthService) { }
 
   ngOnInit() {
     this.bursaryService.getBursaries().subscribe(Data => {
       this.bursaries = Data;
     });
     this.bursaryinfo= false;
+
+
+    this.authService.clientAdmin.subscribe( data=> {
+      if (data) {
+        this.clientId= data.clientId;
+        this.firstName= data.firstName;
+      }
+      else {
+        console.log('Error: information not found');
+      }
+    })
+
   }
 
   showInfo(bursary: Bursary) {
