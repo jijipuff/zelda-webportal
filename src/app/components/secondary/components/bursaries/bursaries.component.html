@@ -6,18 +6,36 @@
     <div class="card">
       <div class="card-body">
 
-          <div class="row text-muted">
-              <div class="col-md-3 dropdown">
-                <select class="custom-select btn btn-secondary" id="dropdownMenuButton" [(ngModel)]="filterby" (change)= "filter($event)" >
-                  <option selected> Order By</option>
-                  <option value="title">Bursary Title</option>
-                  <option value="date">Closing Date</option>
-                </select>
-              </div>
-              
-          </div>
+        <div class="row text-muted">
+          <div class="col-md-3 dropdown">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"> Order By
+              <span class="caret"></span>
+            </button>
 
-        <table class="table bg-light text-center table-responsive table-striped">
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a (click)="filterByTitle('title')">Bursary Title</a>
+              </li>
+              <li>
+                <a (click)="filterByDate('date')">Clsoing Date</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!--
+        <div class="row text-muted">
+          <div class="col-md-3 dropdown">
+            <select class="custom-select btn btn-secondary" id="dropdownMenuButton" >
+              <option selected> Order By</option>
+              <option value="title">Bursary Title</option>
+              <option value="date">Closing Date</option>
+            </select>
+          </div>
+        </div>
+      -->
+
+        <table class="table bg-light text-center table-responsive table-striped" *ngIf="Bursaries$ | async; let bursaries; else loading">
           <thead>
             <tr class="text-muted">
               <th>Title</th>
@@ -26,23 +44,30 @@
               <th> Options</th>
             </tr>
           </thead>
-          <tbody class= "bursaries">
-            <tr *ngFor="let bursary of bursaries" routerLink="/bursary/edit/{{bursary.bursaryId}}" >
+          <tbody class="bursaries">
+            <tr *ngFor="let bursary of bursaries" routerLink="/bursary/edit/{{bursary.bursaryId}}">
               <td> {{ bursary.title }} </td>
               <td> {{ bursary.closingDate.toDate() | date: 'dd/MM/yyyy' }} </td>
-              <td> <button class="btn btn-secondary btn-sm button" routerLink="/bursary/{{bursary.bursaryId}}"> Preview </button></td>
+              <td>
+                <button class="btn btn-secondary btn-sm button" routerLink="/bursary/{{bursary.bursaryId}}"> Preview </button>
+              </td>
               <td>
                 <button class="btn btn-success btn-sm button">Close Applications</button>
-                <button class="btn-danger btn-sm button" data-toggle="modal" data-target="#cancelModal"
-                 routerLink="/bursary/delete/{{bursary.bursaryId}}" >Delete Bursary </button>
+                <button class="btn-danger btn-sm button" data-toggle="modal" data-target="#cancelModal" routerLink="/bursary/delete/{{bursary.bursaryId}}">Delete Bursary </button>
               </td>
             </tr>
+            <ng-template #loading>Loading&hellip;</ng-template>
           </tbody>
         </table>
+
+
+
+
+
       </div>
     </div>
   </div>
-  
+
   <div class="col-md-3 ">
     <div class="card border-success">
       <div class="card-body">

@@ -1,0 +1,21 @@
+a {
+    color: #03837c;
+}
+
+a:link {
+    color: #03837c;  
+}
+
+a:hover {
+    color: #024b47;
+}
+
+
+.btn-link {
+    color: #03837c;
+    cursor: pointer;
+}
+
+.btn-link:hover {
+    color: #024b47;
+}

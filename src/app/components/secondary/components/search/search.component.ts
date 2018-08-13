@@ -13,8 +13,6 @@ import { UserProfileDemographics } from '../../../../models/UserProfileDemograph
 })
 export class SearchComponent implements OnInit {
 
-  userDemographicsCollection: AngularFirestoreCollection<UserProfileDemographics>;
-  userDemographicsDocument: AngularFirestoreDocument<UserProfileDemographics>;
   userDemographics$: Observable<UserProfileDemographics[]>;
   UserDemographic: Observable<UserProfileDemographics>;
 
