@@ -8,7 +8,7 @@
 <div class="row bg-warning p-2">
   <div class="col-xl-4">
     <div class="dropdown">
-      <button class="btn btn-lg btn-light dropdown-toggle" type="button" data-toggle="dropdown">Select Bursary
+      <button class="btn btn-lg btn-light dropdown-toggle btn-block" type="button" data-toggle="dropdown">Select Bursary
         <span></span>
       </button>
       <ul class="dropdown-menu bursaries">
@@ -26,6 +26,8 @@
   </div>
 </div>
 
+<div class="col-md-12 box" *ngIf="bursaries?.lenght>0"></div>
+<div class="col-md-12" *ngIf="selectedBursary"> 
 <div class="row mb-12 bg-dark">
   <div class="col-sm-5 col-xl-3 p-2">
     <div class="card card-common border-dark">
@@ -57,7 +59,7 @@
       </div>
       <div class="card-footer text-secondary">
         <i class="fa fa-sync mr-3"></i>
-        <a href="#" class="btn btn-warning">View</a>
+        <a routerLink="/messaging" class="btn btn-warning">View</a>
       </div>
     </div>
   </div>
@@ -145,15 +147,19 @@
           <ul class="list-group list-group-flush bursaries">
             <li class="list-group-item">Jamie Oliver
               <i class="fa fa-plus text-success pull-right"></i>
+              <i class="fa fa-bookmark text-danger pull-right"></i>
             </li>
             <li class="list-group-item">Gordan Ramsay
               <i class="fa fa-plus text-success pull-right"></i>
+              <i class="fa fa-bookmark text-danger pull-right"></i>
             </li>
             <li class="list-group-item">Rachael Ray
               <i class="fa fa-plus text-success pull-right"></i>
+              <i class="fa fa-bookmark text-danger pull-right"></i>
             </li>
             <li class="list-group-item">Alton Brown
               <i class="fa fa-plus text-success pull-right"></i>
+              <i class="fa fa-bookmark text-danger pull-right"></i>
             </li>
           </ul>
         </div>
@@ -163,4 +169,6 @@
         </div>
       </div>
     </div>
+  </div>
+  </div>
   </div>
