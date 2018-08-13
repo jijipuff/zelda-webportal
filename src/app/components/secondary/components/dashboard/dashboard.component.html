@@ -6,23 +6,27 @@
 </nav>
 
 <div class="row bg-warning p-2">
-  <div class="col-md-12">
-    <div class="col-xl-4">
-      <div class="dropdown">
-        <button class="btn btn-lg btn-light dropdown-toggle" type="button" data-toggle="dropdown">Select Bursary
-          <span></span>
-        </button>
-        <ul class="dropdown-menu bursaries">
-          <li *ngFor="let bursary of bursaries" class="selected" (click)="showInfo(bursary)">
-            <a> {{ bursary.title }}</a>
-          </li>
-        </ul>
-      </div>
+  <div class="col-xl-4">
+    <div class="dropdown">
+      <button class="btn btn-lg btn-light dropdown-toggle" type="button" data-toggle="dropdown">Select Bursary
+        <span></span>
+      </button>
+      <ul class="dropdown-menu bursaries">
+        <li *ngFor="let bursary of bursaries" class="selected" (click)="showInfo(bursary)">
+          <a> {{ bursary.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-xl-8" *ngIf="bursaries?.length>0">
+    <div class="alert alert-info">
+      <h5>You are currently viewing <strong *ngIf="selectedBursary"> {{selectedBursary.title}} </strong></h5>
     </div>
   </div>
 </div>
 
-<div class="row mb-12 bg-dark" *ngIf= "bursaries?.length>0">
+<div class="row mb-12 bg-dark">
   <div class="col-sm-5 col-xl-3 p-2">
     <div class="card card-common border-dark">
       <div class="card-body">
@@ -32,7 +36,7 @@
             <h5>Accepted Students</h5>
             <h1 class="text-dark"> 23 </h1>
           </div>
-        </div>    
+        </div>
       </div>
       <div class="card-footer text-secondary">
         <i class="fa fa-sync mr-3"></i>
@@ -94,7 +98,7 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-4 col-xl-4 p-4">
+  <div class="col-sm-6 col-xl-6 p-4">
     <div class="card border-dark">
       <div class="card-header">
         <div class="row">
@@ -122,7 +126,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-4 col-xl-4 p-4">
+  <div class="col-sm-2 col-xl-2 p-4">
     <div class="card card-common border-dark">
       <div class="card-body">
         <div class="justify-content-between">
