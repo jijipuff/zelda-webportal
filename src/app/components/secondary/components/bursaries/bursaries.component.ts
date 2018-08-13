@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BursaryService } from '../../../../services/bursary.service';
 import { Bursary } from '../../../../models/Bursary';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 
 @Component({
@@ -27,11 +27,16 @@ export class BursariesComponent implements OnInit {
 
 
   constructor(private bursaryService: BursaryService, private afs: AngularFirestore) {
-  
+
     this.bursaryinfo= false;
 
-    this.Bursaries$= this.afs.collection('Bursaries').valueChanges();
- 
+    this.Bursaries$= this.afs.collection('Bursaries').snapshotChanges().pipe(map(changes => {
+      return changes.map(action => {
+        const bursaryData = action.payload.doc.data() as Bursary;
+        bursaryData.bursaryId = action.payload.doc.id;
+        return bursaryData;
+      });
+    }));
    }
 
 
