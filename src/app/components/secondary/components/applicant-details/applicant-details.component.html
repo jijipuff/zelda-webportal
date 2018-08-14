@@ -6,59 +6,190 @@
     </div>
 </div>
 
-<div class="row"> 
-<div class="col-md-12 box">
-    <h4 class="text-muted text-center mb-3 mt-2 txt"> Student Information</h4>
-    <div class="card">
 
-        <h4> {{ applicant.firstName }} {{ applicant.lastName }} </h4>
-
-        <div class="module applicant">
-
-            <div class="grid grid-pad">
-                <div class="row">
-                    <div class="col-md-4"> Gender </div>
-                    <div class="col-md-4"> Race </div>
-                    <div class="col-md-4"> Nationality</div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="info"> {{ applicant.gender }} </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="info">{{ applicant.race }} </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="info">{{ applicant.nationality }} </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md"> Application Status</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12"> Pending </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md"> Income Bands </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12"> less than 100,000R/Year </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md"> Marks </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12"> Mathematics: 78% </div>
-                </div>
-
-            </div>
-
-
-        </div>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home">Application Form A</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu1">Application Form B</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu2">Application Form C</a>
+            </li>
+        </ul>
     </div>
 </div>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <!-- APPLICATION FORM A -->
+    <div id="home" class="container tab-pane active">
+        <br>
+        <h3>PERSONAL DETAILS</h3>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td colspan="1">
+                        <form class="well form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">First Name</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="firstName" name="firstName" placeholder="First Name" class="form-control" value={{applicant.firstName}} type="text"
+                                                readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Last Name</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="lastName" name="lastName" placeholder="Last Name" class="form-control" value={{applicant.lastName}} type="text"
+                                                readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Native Language</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="language" name="language" placeholder="language" class="form-control" value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Date of Birth</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="dob" name="dob" placeholder="mm/dd/yyyy" class="form-control" value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Place of Birth</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="birthplace" name="birthplace" placeholder="mm/dd/yyyy" class="form-control" value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Gender</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="gender" name="gender" placeholder="Female" class="form-control" value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Marital Status</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="matric" name="matric" placeholder="mm/dd/yyyy" class="form-control" value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Race</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="race" name="race" placeholder="race" class="form-control" value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Citizenship</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="citizen" name="citizen" placeholder="citizen?" class="form-control" value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </td>
+                    <td colspan="1">
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- APPLICATION FORM B -->
+    <div id="menu1" class="container tab-pane fade">
+        <br>
+        <h3>SCHOOL QUALIFICATIONS</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td colspan="1">
+                        <form class="well form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Name of School</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="firstName" name="firstName" placeholder="First Name" class="form-control" value="" type="text"
+                                                readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">School Address</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="schoolAddress" name="schoolAddress" placeholder="address" class="form-control" value="" type="text"
+                                                readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">School Telephone Number</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="schoolPhone" name="schoolPhone" placeholder="####" class="form-control" value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                        <label class="col-md-4 control-label">Matriculation Year</label>
+                                        <div class="col-md-8 inputGroupContainer">
+                                            <div class="input-group">
+                                                <input id="matric" name="matric" placeholder="mm/dd/yyyy" class="form-control" value="" type="text" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Subjects</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input id="subjects" name="subjects" placeholder="subjects?" class="form-control" value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                               
+                            </fieldset>
+                        </form>
+                    </td>
+                    <td colspan="1">
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- APPLICATION FORM 3-->
+    <div id="menu2" class="container tab-pane fade">
+        <br>
+        <h3>PROPOSED/CURRENT STUDIES</h3>
+    </div>
 </div>

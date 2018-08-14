@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '../../../../../../node_modules/angularfire2/firestore';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 import { UserProfileDemographics } from '../../../../models/UserProfileDemographics';
+import { Applicant } from '../../../../models/Applicant';
+import { User } from '../../../../../../node_modules/firebase';
 
 
 @Component({
@@ -28,6 +30,7 @@ export class ApplicantsComponent implements OnInit {
 
   filterOn: boolean;
 
+  applicantId: string;
 
   constructor(afs: AngularFirestore) {
     this.genderFilter$ = new BehaviorSubject(null);
@@ -46,9 +49,14 @@ export class ApplicantsComponent implements OnInit {
           if (race) { query = query.where('race', '==', race) };
           if (nationality) { query= query.where('nationality', '==',nationality)};
           return query;
-        }).valueChanges()
-      )
-    );
+        }).snapshotChanges().pipe(map(changes=> {
+          return changes.map(action=> {
+            const userData= action.payload.doc.data() as UserProfileDemographics;
+            this.applicantId= userData.applicantId;
+            return userData;
+          });
+        })))
+      );
   }
 
   ngOnInit() {
