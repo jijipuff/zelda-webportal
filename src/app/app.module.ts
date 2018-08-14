@@ -24,6 +24,8 @@ import { BursaryService } from './services/bursary.service';
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { ApplicantService } from './services/applicants.service';
+import { FlaggedService } from './services/flagged.service';
+
 
 @NgModule({
   declarations: [
@@ -52,8 +54,14 @@ import { ApplicantService } from './services/applicants.service';
     BursaryService,
     ClientService,
     AuthService,
-    ApplicantService
+    ApplicantService,
+    FlaggedService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+  entryComponents:  [
+  ],
+
+
 })
 export class AppModule { }

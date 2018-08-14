@@ -1,4 +1,4 @@
-export interface Applicant {
+export class Applicant {
     applicantId?: string;
     userId?: string; 
     dateApplied?: Date;
@@ -9,4 +9,8 @@ export interface Applicant {
     gender?: string;
     race?: string;
     nationality?: string;
+
+    constructor(){
+
+    }
 }

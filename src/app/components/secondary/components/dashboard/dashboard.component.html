@@ -1,11 +1,10 @@
 <nav class="navbar">
   <a class="navbar-brand" *ngIf="clientId">
-    <a>Welcome To Your Dashboard</a>
-    <a> {{firstName}}!</a>
+    <h3>Welcome To Your Dashboard {{firstName}}!</h3>
   </a>
 </nav>
 
-<div class="row bg-warning p-2">
+<div class="row fresh p-2">
   <div class="col-xl-4">
     <div class="dropdown">
       <button class="btn btn-lg btn-light dropdown-toggle btn-block" type="button" data-toggle="dropdown">Select Bursary
@@ -28,7 +27,7 @@
 
 <div class="col-md-12 box" *ngIf="bursaries?.lenght>0"></div>
 <div class="col-md-12" *ngIf="selectedBursary"> 
-<div class="row mb-12 bg-dark">
+<div class="row">
   <div class="col-sm-5 col-xl-3 p-2">
     <div class="card card-common border-dark">
       <div class="card-body">
@@ -42,7 +41,7 @@
       </div>
       <div class="card-footer text-secondary">
         <i class="fa fa-sync mr-3"></i>
-        <a href="#" class="btn btn-warning">View</a>
+        <a href="#" class="btn sunshine">View</a>
       </div>
     </div>
   </div>
@@ -59,7 +58,7 @@
       </div>
       <div class="card-footer text-secondary">
         <i class="fa fa-sync mr-3"></i>
-        <a routerLink="/messaging" class="btn btn-warning">View</a>
+        <a routerLink="/messaging" class="btn sunshine">View</a>
       </div>
     </div>
   </div>
@@ -76,7 +75,7 @@
       </div>
       <div class="card-footer text-secondary">
         <i class="fa fa-sync mr-3"></i>
-        <a href="#" class="btn btn-warning">View</a>
+        <a href="#" class="btn sunshine">View</a>
       </div>
     </div>
   </div>
@@ -93,7 +92,7 @@
       </div>
       <div class="card-footer text-secondary">
         <i class="fa fa-sync mr-3"></i>
-        <a href="#" class="btn btn-warning" routerLink="/flagged">view</a>
+        <a  href=#  class="btn sunshine"  routerLink="/flagged" >view</a>
       </div>
     </div>
   </div>
@@ -145,21 +144,23 @@
         <h4 class="card-title">Top Applicants</h4>
         <div style="width: 30 rem;">
           <ul class="list-group list-group-flush bursaries">
+
             <li class="list-group-item">Jamie Oliver
-              <i class="fa fa-plus text-success pull-right"></i>
-              <i class="fa fa-flag text-danger pull-right"></i>
+              <button class="fa fa-plus text-success pull-right"></button>
+              <button type="submit" class="fa fa-flag text-danger pull-right" (click)="save()"></button>
+              <button type="button" class="fa fa-minus-circle text-danger pull right" (click)="removeObject()"></button>
             </li>
             <li class="list-group-item">Gordan Ramsay
-              <i class="fa fa-plus text-success pull-right"></i>
-              <i class="fa fa-flag text-danger pull-right"></i>
+              <button class="fa fa-plus text-success pull-right"></button>
+              <button class="fa fa-flag text-danger pull-right"></button>
             </li>
             <li class="list-group-item">Rachael Ray
-              <i class="fa fa-plus text-success pull-right"></i>
-              <i class="fa fa-flag text-danger pull-right"></i>
+              <button class="fa fa-plus text-success pull-right"></button>
+              <button class="fa fa-flag text-danger pull-right"></button>
             </li>
             <li class="list-group-item">Alton Brown
-              <i class="fa fa-plus text-success pull-right"></i>
-              <i class="fa fa-flag text-danger pull-right"></i>
+              <button class="fa fa-plus text-success pull-right"></button>
+              <button class="fa fa-flag text-danger pull-right"></button>
             </li>
           </ul>
         </div>

@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+} from '@angular/core';
+import { DashboardComponent } from './../dashboard/dashboard.component';
+import { FlaggedService } from '../../../../services/flagged.service';
 
 @Component({
   selector: 'app-flagged',
@@ -7,9 +13,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlaggedComponent implements OnInit {
 
+  dashboard :DashboardComponent 
+
+  flaggedService: FlaggedService = new FlaggedService();
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { 
+
+
+    console.log(this.flaggedService.getAll());
+
+    this.flaggedService.clear();
+
   }
 
+  
+
+  
 }

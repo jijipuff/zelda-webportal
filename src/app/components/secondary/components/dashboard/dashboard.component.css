@@ -13,3 +13,22 @@
     background-color: #DDD;
     left: .1em;
 }
+
+/* these colors should be added to the overall theme, not just the dashboard page (set as primary, secondary, and accent colors */
+.fresh {
+    background-color: #4abdac
+}
+
+.vermillion {
+    color: #dfdce3;
+    background-color: #fc4a1a;
+}
+
+.sunshine {
+    background-color: #f7b733;
+    color: white;
+}
+
+.clean {
+    background-color: #dfdce3;
+}
