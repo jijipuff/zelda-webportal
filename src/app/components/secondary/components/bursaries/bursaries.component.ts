@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { BursaryService } from '../../../../services/bursary.service';
+import { Component, OnInit } from '@angular/core';
 import { Bursary } from '../../../../models/Bursary';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 
 @Component({
@@ -27,29 +27,17 @@ export class BursariesComponent implements OnInit {
 
 
   constructor(private bursaryService: BursaryService, private afs: AngularFirestore) {
-  
+
     this.bursaryinfo= false;
 
-    this.Bursaries$= this.afs.collection('Bursaries').valueChanges();
-   
-    /** 
-    this.Bursaries$ = combineLatest(
-      this.titleFilter$,
-      this.dateFilter$
-    ).pipe(
-      switchMap(([title, date]) =>
-        afs.collection('Bursaries', ref => {
-          let query: firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
-          if (title) { query = query.orderBy('title', 'asc') };
-          if (date) { query= query.orderBy('date', 'asc')};
-          return query;
-        }).valueChanges()
-      )
-    );
-    */
+    this.Bursaries$= this.afs.collection('Bursaries').snapshotChanges().pipe(map(changes => {
+      return changes.map(action => {
+        const bursaryData = action.payload.doc.data() as Bursary;
+        bursaryData.bursaryId = action.payload.doc.id;
+        return bursaryData;
+      });
+    }));
    }
-
- 
 
 
   ngOnInit() {
@@ -57,11 +45,23 @@ export class BursariesComponent implements OnInit {
 
 
   filterByTitle(title: string | null) {
-    this.Bursaries$= this.afs.collection('Bursaries', ref=> ref.orderBy('title', 'asc')).valueChanges();
+    this.Bursaries$= this.afs.collection('Bursaries', ref=> ref.orderBy('title', 'asc')).snapshotChanges().pipe(map(changes => {
+      return changes.map(action => {
+        const bursaryData = action.payload.doc.data() as Bursary;
+        bursaryData.bursaryId = action.payload.doc.id;
+        return bursaryData;
+      });
+    }));
   }
 
   filterByDate(date: string | null) {
-    this.Bursaries$= this.afs.collection('Bursaries', ref=> ref.orderBy('date', 'asc')).valueChanges();
+    this.Bursaries$= this.afs.collection('Bursaries', ref=> ref.orderBy('date', 'asc')).snapshotChanges().pipe(map(changes => {
+      return changes.map(action => {
+        const bursaryData = action.payload.doc.data() as Bursary;
+        bursaryData.bursaryId = action.payload.doc.id;
+        return bursaryData;
+      });
+    }));
   }
 
 }

@@ -8,23 +8,20 @@ import { Applicant } from '../../../../models/Applicant';
   styleUrls: ['./applicants.component.css']
 })
 export class ApplicantsComponent implements OnInit {
+  applicants: Applicant[]= [];
 
-  applicants: Applicant[];
-  selectedApplicant: Applicant;
   studentInfo: boolean;
 
-  
+  selectedApplicant: Applicant;
+
 
   constructor(private applicantService: ApplicantService) {}
 
   ngOnInit() {
-    this.applicantService.getApplicants()
-    .subscribe(data => { 
+    this.applicantService.getApplicants().subscribe(data => { 
       this.applicants = data;
       console.log("Applicants retrieved");
-
     });
-    
     this.studentInfo= false;
   }
 
