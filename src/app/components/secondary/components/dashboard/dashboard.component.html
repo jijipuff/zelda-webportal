@@ -84,16 +84,16 @@
     <div class="card card-common border-dark">
       <div class="card-body">
         <div class="d-flex justify-content-between">
-          <i class="fa fa-bookmark fa-3x text-danger"></i>
+          <i class="fa fa-flag fa-3x text-danger"></i>
           <div class="text-right text-secondary">
-            <h5>Saved Searches</h5>
+            <h5>Flagged Applicants</h5>
             <h1 class="text-dark">15</h1>
           </div>
         </div>
       </div>
       <div class="card-footer text-secondary">
         <i class="fa fa-sync mr-3"></i>
-        <a href="#" class="btn btn-warning">view</a>
+        <a href="#" class="btn btn-warning" routerLink="/flagged">view</a>
       </div>
     </div>
   </div>
@@ -133,7 +133,7 @@
       <div class="card-body">
         <div class="justify-content-between">
           <h3>Metrics Here!</h3>
-          <p>Would be super cool to have bursary metrics here with donut charts</p>
+          <p>Would be super cool to have bursary metrics here with donut charts, use https://angularfirebase.com/lessons/realtime-charts-with-plot-ly/</p>
         </div>
       </div>
     </div>
@@ -147,19 +147,19 @@
           <ul class="list-group list-group-flush bursaries">
             <li class="list-group-item">Jamie Oliver
               <i class="fa fa-plus text-success pull-right"></i>
-              <i class="fa fa-bookmark text-danger pull-right"></i>
+              <i class="fa fa-flag text-danger pull-right"></i>
             </li>
             <li class="list-group-item">Gordan Ramsay
               <i class="fa fa-plus text-success pull-right"></i>
-              <i class="fa fa-bookmark text-danger pull-right"></i>
+              <i class="fa fa-flag text-danger pull-right"></i>
             </li>
             <li class="list-group-item">Rachael Ray
               <i class="fa fa-plus text-success pull-right"></i>
-              <i class="fa fa-bookmark text-danger pull-right"></i>
+              <i class="fa fa-flag text-danger pull-right"></i>
             </li>
             <li class="list-group-item">Alton Brown
               <i class="fa fa-plus text-success pull-right"></i>
-              <i class="fa fa-bookmark text-danger pull-right"></i>
+              <i class="fa fa-flag text-danger pull-right"></i>
             </li>
           </ul>
         </div>
@@ -172,3 +172,7 @@
   </div>
   </div>
   </div>
+
+  <!-- links for making a live dashboard in Angular:
+    1. https://jinalshahblog.wordpress.com/2017/02/16/live-dashboard-in-angular2-using-observablepull-real-time-data-to-keep-ui-updated/
+  -->

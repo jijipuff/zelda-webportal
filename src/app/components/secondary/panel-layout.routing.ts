@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+import { FlaggedComponent } from './components/flagged/flagged.component';
 import { BursaryDetailsComponent } from './components/bursary-details/bursary-details.component';
 import { EditBursaryComponent } from './components/edit-bursary/edit-bursary.component';
 import { AddBursaryComponent } from './components/add-bursary/add-bursary.component';
@@ -23,5 +24,6 @@ export const PanelLayoutRoutes: Routes = [
     { path: 'profile', component: ProfileComponent},
     { path: 'applicants', component: ApplicantsComponent },
     { path: 'messaging', component: MessagingComponent },
-    { path: 'search', component: SearchComponent}
+    { path: 'search', component: SearchComponent},
+    { path: 'flagged', component: FlaggedComponent}
 ];
