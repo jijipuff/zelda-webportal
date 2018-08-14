@@ -4,4 +4,5 @@ export interface UserProfileDemographics {
     race?: string;
     homeTown?: string;
     homeOrigin?: string;
+    applicantId?: string;
 }

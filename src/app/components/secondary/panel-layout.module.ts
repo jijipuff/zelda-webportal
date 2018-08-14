@@ -11,7 +11,6 @@ import { EditBursaryComponent } from './components/edit-bursary/edit-bursary.com
 import { AddBursaryComponent } from './components/add-bursary/add-bursary.component';
 import { BursariesComponent } from './components/bursaries/bursaries.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { SearchComponent } from './components/search/search.component';
 import { ApplicantsComponent } from './components/applicants/applicants.component';
 import { ApplicantDetailsComponent } from './components/applicant-details/applicant-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -34,7 +33,6 @@ import { PreviewBursaryComponent } from './components/preview-bursary/preview-bu
     AddBursaryComponent,
     BursariesComponent,
     DashboardComponent,
-    SearchComponent,
     ApplicantsComponent,
     ApplicantDetailsComponent,
     ProfileComponent,

@@ -1,31 +1,122 @@
+<div class="col-md-12 box">
+  <h3 class="text-muted text-center mb-3 mt-2 txt">Manage Applicants</h3>
+</div>
+
 <div class="row">
-  <div class="col-md-12 box">
-    <h3 class="text-muted text-center mb-3 mt-2 txt">Manage Applicants</h3>
+  <div class="col align-self-start">
+    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+      aria-controls="collapseExample">
+      <i class="fa fa-filter"></i>
+      Filter </button>
   </div>
-
-  <div class="row">
-    <h4>Insert search bar here!!</h4>
+  <div class="col align-self-center"></div>
+  <div class="col align-self-end justify-content-end">
+    <form class="form-inline">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+    </form>
   </div>
+</div>
 
+<div class="text-muted collapse" id="collapseExample">
+  <div class="card card-body">
+    <div class="row">
+      <div class="btn-group">
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"> Select Gender
+          <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <a (click)="filterByGender('Female')">Female</a>
+          </li>
+          <li>
+            <a (click)="filterByGender('Male')">Male</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"> Select Race
+          <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <a (click)="filterByRace('White')">White</a>
+          </li>
+          <li>
+            <a (click)="filterByRace('Black')">Black</a>
+          </li>
+          <li>
+            <a (click)="filterByRace('Asian')">Asian</a>
+          </li>
+          <li>
+            <a (click)="filterByRace('Hispanic')">Hispanic</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Select Nationality
+          <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <a (click)="filterByNationality('US')">US </a>
+          </li>
+          <li>
+            <a (click)="filterByNationality('South African')"> South African</a>
+          </li>
+          <li>
+            <a (click)="filterByNationality('Mozambique')">Mozambique</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col btn-group" role="group">
+        <button type="button" class="btn-secondary btn-sm" (click)="filterByGender(null)" *ngIf="this.genderFilter$.getValue()">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <em> {{gender}}</em>
+        </button>
+        <button type="button" class="btn-secondary btn-sm" (click)="filterByNationality(null)" *ngIf="this.nationalityFilter$.getValue()">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <em> {{ nationality }}</em>
+        </button>
+        <button type="button" class="btn-secondary btn-sm" (click)="filterByRace(null)" *ngIf="this.raceFilter$.getValue()">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <em> {{ race }} </em>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12" *ngIf="userDemographics$ | async; let applicants; else loading">
+  <div class="p-2" *ngIf="applicants.length>0">
+    <em> {{applicants.length}} students found </em>
+  </div>
+  <div class="p-2" *ngIf="applicants.length === 0"> No results, try clearing filters </div>
   <table class="table text-center table-responsive table-striped">
     <thead class="bg-dark text-light">
       <tr>
         <th></th>
         <th></th>
-        <th></th>
-        <th>Firstname</th>
-        <th>Lastname</th>
+        <th>First name</th>
+        <th>Last name</th>
         <th>Gender</th>
         <th>Race</th>
         <th>Nationality</th>
         <th>Marks</th>
         <th>Date Applied</th>
-        <th>Details</th>
         <th>Status</th>
       </tr>
     </thead>
-    <tbody *ngFor="let applicant of applicants" (click)="showInfo(applicant)" class="applicants">
-      <tr>
+    <tbody class="applicants">
+      <tr *ngFor="let applicant of applicants" routerLink="/applicant/{{applicant.applicantId}}">
         <td>
           <div class="ckbox">
             <input type="checkbox" class="custom-control-input" id="checkbox1">
@@ -37,67 +128,22 @@
             <i class="fa fa-star-o"></i>
           </a>
         </td>
-        <td>
-          <div class="media">
-            <a class="pull-left">
-              <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-            </a>
-          </div>
-        </td>
-        <td> {{ applicant.firstName }}</td>
-        <td> {{ applicant.lastName }} </td>
+        <td> </td>
+        <td> </td>
         <td> {{ applicant.gender }}</td>
         <td> {{ applicant.race }}</td>
         <td> {{ applicant.nationality }}</td>
-        <td> {{ applicant.marks }}</td>
-        <td> {{ applicant.dateApplied.toDate() | date: 'dd/MM/yyyy' }}</td>
+        <td> </td>
+        <td> </td>
         <td>
-          <a routerLink="/applicant/{{applicant.applicantId}}" class="btn btn-secondary btn-sm">
-            <i class="fa fa-arrow-circle-o-right mr-1"></i>More Details
-          </a>
-        </td>
-        <td>
-          <button class="btn btn-success" type="button">Accept</button>
-          <button class="btn btn-warning" type="button">Pending</button>
-          <button class="btn btn-danger" type="button">Reject</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="ckbox">
-            <input type="checkbox" class="custom-control-input" id="checkbox2">
-            <label for="checkbox2"></label>
+          <div class="btn-group" role="row">
+            <button class="btn btn-success" type="button">Accept</button>
+            <button class="btn btn-warning" type="button">Pending</button>
+            <button class="btn btn-danger" type="button">Reject</button>
           </div>
         </td>
-        <td>
-          <a class="star">
-            <i class="fa fa-star-o"></i>
-          </a>
-        </td>
-        <td>
-          <div class="media">
-            <a class="pull-left">
-              <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-            </a>
-          </div>
-        </td>
-        <td> Nelson </td>
-        <td> Mandela </td>
-        <td> Male </td>
-        <td> Black </td>
-        <td> South African</td>
-        <td> 100% </td>
-        <td> 13/08/2018 </td>
-        <td>
-          <a routerLink="/applicant/{{applicant.applicantId}}" class="btn btn-secondary btn-sm">
-            <i class="fa fa-arrow-circle-o-right mr-1"></i>More Details
-          </a>
-        </td>
-        <td>
-          <button class="btn btn-success" type="button">Accept</button>
-          <button class="btn btn-warning" type="button">Pending</button>
-          <button class="btn btn-danger" type="button">Reject</button>
-        </td>
       </tr>
+
     </tbody>
   </table>
+</div>

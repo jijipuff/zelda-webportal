@@ -7,7 +7,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ApplicantsComponent } from './components/applicants/applicants.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MessagingComponent } from './components/messaging/messaging.component';
-import { SearchComponent } from './components/search/search.component';
 import { DeleteBursaryComponent } from './components/delete-bursary/delete-bursary.component';
 import { PreviewBursaryComponent } from './components/preview-bursary/preview-bursary.component';
 import { ApplicantDetailsComponent } from './components/applicant-details/applicant-details.component';
@@ -23,6 +22,5 @@ export const PanelLayoutRoutes: Routes = [
     { path: 'applicants', component: ApplicantsComponent },
     { path: 'applicant/:id', component: ApplicantDetailsComponent },
     { path: 'profile', component: ProfileComponent},
-    { path: 'messaging', component: MessagingComponent },
-    { path: 'search', component: SearchComponent}
+    { path: 'messaging', component: MessagingComponent }
 ];

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BursaryService } from '../../../../services/bursary.service';
 import { Bursary } from '../../../../models/Bursary';
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 

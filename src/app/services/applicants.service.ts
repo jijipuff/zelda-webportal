@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable, of } from 'rxjs';
 import { Applicant } from '../models/Applicant';
 import { map } from 'rxjs/operators';
+import { ApplicationSubmitted } from '../models/ApplicationSubmitted';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ export class ApplicantService {
   ApplicantDocument: AngularFirestoreDocument<Applicant>;
   applicants: Observable<Applicant[]>;
   Applicant: Observable<Applicant>;
+
+  appSubmittedCollection: AngularFirestoreCollection<ApplicationSubmitted>;
+  AppSubmittedDocument: AngularFirestoreDocument<ApplicationSubmitted>;
+  AppSubmitted: Observable<ApplicationSubmitted>;
 
   clientId: string;
 
@@ -45,6 +50,18 @@ export class ApplicantService {
       }
     }));
     return this.Applicant;
+  }
+
+  getApplicationForm(id: string): Observable<ApplicationSubmitted> {
+    this.AppSubmittedDocument = this.afs.doc<ApplicationSubmitted>(`ApplicationForm/${id}`);
+    this.AppSubmitted= this.AppSubmittedDocument.valueChanges().pipe(map(data => {
+      if (data) {
+        return data as ApplicationSubmitted;
+      } else {
+        return null;
+      }
+    }));
+    return this.AppSubmitted;
   }
 
   addApplicant(newApplicant: Applicant) {
