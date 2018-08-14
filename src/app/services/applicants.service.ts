@@ -52,13 +52,6 @@ export class ApplicantService {
     return this.Applicant;
   }
 
-  /** 
-  getApplicantByUserId(id: string): Observable<Applicant> {
-    this.ApplicantDocument= this.afs.doc('Applicants', ref => ref.where('userId', '==', id));
-  }
-  */
-
-  //need the User Id to do this
   getApplicationForm(id: string): Observable<ApplicationSubmitted> {
     this.AppSubmittedDocument = this.afs.doc<ApplicationSubmitted>(`ApplicationForm/${id}`);
     this.AppSubmitted= this.AppSubmittedDocument.valueChanges().pipe(map(data => {
