@@ -17,23 +17,11 @@
                 <a (click)="filterByTitle('title')">Bursary Title</a>
               </li>
               <li>
-                <a (click)="filterByDate('date')">Clsoing Date</a>
+                <a (click)="filterByDate('date')">Closing Date</a>
               </li>
             </ul>
           </div>
         </div>
-
-        <!--
-        <div class="row text-muted">
-          <div class="col-md-3 dropdown">
-            <select class="custom-select btn btn-secondary" id="dropdownMenuButton" >
-              <option selected> Order By</option>
-              <option value="title">Bursary Title</option>
-              <option value="date">Closing Date</option>
-            </select>
-          </div>
-        </div>
-      -->
 
         <table class="table bg-light text-center table-responsive table-striped" *ngIf="Bursaries$ | async; let bursaries; else loading">
           <thead>
